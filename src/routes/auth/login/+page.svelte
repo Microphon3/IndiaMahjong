@@ -1,14 +1,41 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
-	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 	import { Mail, Eye, EyeOff } from 'lucide-svelte';
 
-	let { data, form } = $props();
 	let showPassword = $state(false);
 	let isLoading = $state(false);
+	let error = $state('');
+	let email = $state('');
 
 	const togglePasswordVisibility = () => {
 		showPassword = !showPassword;
+	};
+
+	const handleSubmit = async (event: Event) => {
+		event.preventDefault();
+		isLoading = true;
+		error = '';
+
+		const formData = new FormData(event.target as HTMLFormElement);
+		const emailValue = formData.get('email') as string;
+		const password = formData.get('password') as string;
+
+		if (!emailValue || !password) {
+			error = 'Please fill in all fields';
+			isLoading = false;
+			return;
+		}
+
+		if (password.length < 6) {
+			error = 'Invalid email or password';
+			isLoading = false;
+			return;
+		}
+
+		// Simulate API call
+		setTimeout(() => {
+			goto('/dashboard');
+		}, 1000);
 	};
 </script>
 
@@ -55,13 +82,7 @@
 
 		<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
 			<div class="bg-white/90 backdrop-blur-sm px-8 py-12 shadow-2xl sm:rounded-3xl sm:px-12 border border-white/50">
-			<form class="space-y-6" method="POST" action="?/signin" use:enhance={() => {
-				isLoading = true;
-				return async ({ update }) => {
-					await update();
-					isLoading = false;
-				};
-			}}>
+			<form class="space-y-6" onsubmit={handleSubmit}>
 				<div>
 					<label for="email" class="block text-sm font-medium leading-6 text-gray-900">
 						Email address
@@ -73,7 +94,7 @@
 							type="email"
 							autocomplete="email"
 							required
-							value={form?.email ?? ''}
+							bind:value={email}
 							class="block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
 							placeholder="Enter your email"
 						/>
@@ -131,9 +152,9 @@
 					</div>
 				</div>
 
-				{#if form?.error}
+				{#if error}
 					<div class="rounded-md bg-red-50 p-4">
-						<div class="text-sm text-red-800">{form.error}</div>
+						<div class="text-sm text-red-800">{error}</div>
 					</div>
 				{/if}
 

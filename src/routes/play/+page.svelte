@@ -210,61 +210,53 @@
 		</div>
 	</div>
 
-	<!-- Premium Venue Cards -->
+	<!-- Clean Venue Cards -->
 	<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
-		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{#each paginatedVenues as venue, index}
-				<div class="group bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer">
-					<div class="aspect-[4/3] bg-gradient-to-br {index % 4 === 0 ? 'from-emerald-100 to-green-200' : index % 4 === 1 ? 'from-amber-100 to-yellow-200' : index % 4 === 2 ? 'from-purple-100 to-indigo-200' : 'from-rose-100 to-pink-200'} relative">
-						<!-- Premium badges -->
-						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-xl text-xs font-bold text-gray-700 shadow-lg">
-							{venue.hostType === 'home' ? '🏠 Cozy Home' : '🏢 Beautiful Venue'}
+				<div class="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-emerald-200 transition-all duration-300 cursor-pointer">
+					<!-- Header -->
+					<div class="p-6 pb-4">
+						<div class="flex items-start justify-between mb-3">
+							<div class="flex-1">
+								<h3 class="font-semibold text-gray-900 text-lg leading-tight mb-1">{venue.hostName}'s Table</h3>
+								<div class="flex items-center text-sm text-gray-600 mb-2">
+									<MapPin class="w-4 h-4 mr-1" />
+									{venue.location}
+								</div>
+							</div>
+							<div class="flex items-center bg-emerald-50 px-2 py-1 rounded-lg ml-3">
+								<Star class="w-4 h-4 text-emerald-600 fill-current mr-1" />
+								<span class="text-sm font-medium text-emerald-700">{venue.rating}</span>
+							</div>
 						</div>
-						<div class="absolute top-4 right-4 {venue.seatsAvailable > 0 ? 'bg-emerald-100 text-emerald-800 border-emerald-200' : 'bg-red-100 text-red-800 border-red-200'} border-2 px-3 py-1 rounded-xl text-xs font-bold backdrop-blur-sm">
-							{venue.seatsAvailable > 0 ? `${venue.seatsAvailable} seats open` : 'Full'}
-						</div>
-						<div class="absolute bottom-4 left-4 bg-black/80 backdrop-blur text-white px-3 py-2 rounded-xl text-xs font-medium">
-							📍 {venue.location}
+						
+						<p class="text-sm text-gray-600 leading-relaxed mb-4">{venue.description}</p>
+						
+						<!-- Game Info -->
+						<div class="flex items-center gap-4 text-sm text-gray-600 mb-4">
+							<span>{venue.gameStyle}</span>
+							<span class="w-1 h-1 bg-gray-400 rounded-full"></span>
+							<span>{venue.timing}</span>
+							{#if venue.seatsAvailable > 0}
+								<span class="w-1 h-1 bg-gray-400 rounded-full"></span>
+								<span class="text-emerald-600 font-medium">{venue.seatsAvailable} seats</span>
+							{/if}
 						</div>
 					</div>
-					<div class="p-6">
-						<div class="flex items-start justify-between mb-3">
+					
+					<!-- Footer -->
+					<div class="px-6 py-4 bg-gray-50 border-t border-gray-100">
+						<div class="flex items-center justify-between">
 							<div>
-								<h3 class="font-bold text-gray-900 text-lg leading-tight">{venue.hostName}'s Table</h3>
-								<p class="text-sm text-emerald-600 font-medium">Hosted by {venue.hostName}</p>
+								<div class="text-lg font-semibold text-gray-900">₹{venue.pricePerSession.toLocaleString('en-IN')}</div>
+								<div class="text-xs text-gray-500">per session</div>
 							</div>
-							<div class="flex items-center bg-amber-50 px-2 py-1 rounded-lg">
-								<Star class="w-4 h-4 text-amber-500 fill-current mr-1" />
-								<span class="text-sm font-bold text-amber-700">{venue.rating}</span>
-							</div>
-						</div>
-						
-						<p class="text-sm text-gray-600 mb-4 leading-relaxed">{venue.description}</p>
-						
-						<div class="flex flex-wrap gap-2 mb-4">
-							<span class="inline-flex items-center bg-emerald-50 text-emerald-700 text-xs px-3 py-1 rounded-lg font-medium border border-emerald-200">
-								🎲 {venue.gameStyle}
-							</span>
-							<span class="inline-flex items-center bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-lg font-medium border border-blue-200">
-								🕐 {venue.timing}
-							</span>
-							<span class="inline-flex items-center {getBookingBadgeColor(venue.bookingType)} text-xs px-3 py-1 rounded-lg font-medium border border-current/20">
-								✨ {getBookingText(venue.bookingType)}
-							</span>
-						</div>
-						
-						<div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-4">
-							<div class="flex items-center justify-between">
-								<div>
-									<div class="text-xl font-bold text-gray-900">₹{venue.pricePerSession.toLocaleString('en-IN')}</div>
-									<div class="text-xs text-gray-600 font-medium">Book directly with host</div>
-								</div>
-								<button 
-									class="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 {venue.seatsAvailable === 0 ? 'opacity-50 cursor-not-allowed' : ''}"
-									disabled={venue.seatsAvailable === 0}>
-									{venue.seatsAvailable === 0 ? 'Full' : venue.bookingType === 'waitlist' ? 'Join Waitlist' : 'Book Table'}
-								</button>
-							</div>
+							<button 
+								class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 {venue.seatsAvailable === 0 ? 'opacity-50 cursor-not-allowed bg-gray-400 hover:bg-gray-400' : ''}"
+								disabled={venue.seatsAvailable === 0}>
+								{venue.seatsAvailable === 0 ? 'Full' : venue.bookingType === 'waitlist' ? 'Join Waitlist' : 'Book Table'}
+							</button>
 						</div>
 					</div>
 				</div>
