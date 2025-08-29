@@ -33,6 +33,7 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
+		"@anthropic-ai/sdk": "^0.60.0",
 		"@auth/supabase-adapter": "^1.10.0",
 		"@auth/sveltekit": "^1.10.0",
 		"@supabase/ssr": "^0.7.0",

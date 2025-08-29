@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Play, Users, Trophy, ShoppingBag, BookOpen, MapPin, Star } from 'lucide-svelte';
+	import MsFlower from '$lib/components/MsFlower.svelte';
 	
 	const features = [
 		{
@@ -474,3 +475,6 @@
 		</div>
 	</div>
 </div>
+
+<!-- Ms. Flower Chat Widget -->
+<MsFlower />
