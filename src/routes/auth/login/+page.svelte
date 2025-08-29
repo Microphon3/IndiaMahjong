@@ -157,7 +157,7 @@
 			<div class="mt-8">
 				<div class="relative">
 					<div class="absolute inset-0 flex items-center">
-						<div class="w-full border-t border-emerald-200" />
+						<div class="w-full border-t border-emerald-200"></div>
 					</div>
 					<div class="relative flex justify-center text-sm font-bold leading-6">
 						<span class="bg-white px-6 text-emerald-700">🌱 New to our family?</span>
@@ -174,6 +174,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 </div>
