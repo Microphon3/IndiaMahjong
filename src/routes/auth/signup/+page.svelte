@@ -20,26 +20,45 @@
 	<title>Sign Up - India Mahjong</title>
 </svelte:head>
 
-<div class="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
-	<div class="sm:mx-auto sm:w-full sm:max-w-md">
-		<div class="flex justify-center">
-			<div class="w-12 h-12 bg-gradient-to-br from-emerald-600 to-green-700 rounded-lg flex items-center justify-center">
-				<span class="text-white font-bold text-xl">麻</span>
+<!-- Premium Auth Background -->
+<div class="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50 relative overflow-hidden">
+	<div class="absolute inset-0 bg-grid-gray-900/[0.04] bg-[size:20px_20px]" aria-hidden="true"></div>
+	<!-- Decorative blur -->
+	<div class="absolute top-0 left-0 -translate-y-12 -translate-x-12 w-96 h-96 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full opacity-10 blur-3xl" aria-hidden="true"></div>
+	
+	<div class="relative flex min-h-screen flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+		<div class="sm:mx-auto sm:w-full sm:max-w-md">
+			<!-- Premium Logo -->
+			<div class="flex justify-center mb-8">
+				<div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-700 rounded-2xl flex items-center justify-center shadow-2xl">
+					<span class="text-white font-bold text-2xl">麻</span>
+				</div>
 			</div>
+			
+			<!-- Premium Badge -->
+			<div class="flex justify-center mb-6">
+				<div class="inline-flex items-center rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-200 px-4 py-2 text-sm font-medium text-amber-900 shadow-sm">
+					<div class="w-2 h-2 bg-amber-500 rounded-full mr-2 animate-pulse"></div>
+					🎆 Join Our Family
+				</div>
+			</div>
+			
+			<h1 class="text-center text-3xl font-bold leading-9 tracking-tight text-gray-900 mb-3">
+				Become Part of Something Beautiful
+			</h1>
+			<p class="text-center text-lg text-gray-700 mb-2">
+				Join thousands of players who've found their Mahjong home
+			</p>
+			<p class="text-center text-sm text-gray-600">
+				Already part of our family?
+				<a href="/auth/login" class="font-semibold text-emerald-600 hover:text-emerald-500">
+					🏠 Welcome back
+				</a>
+			</p>
 		</div>
-		<h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-			Create your account
-		</h2>
-		<p class="mt-2 text-center text-sm text-gray-600">
-			Already have an account?
-			<a href="/auth/login" class="font-semibold text-emerald-600 hover:text-emerald-500">
-				Sign in
-			</a>
-		</p>
-	</div>
 
-	<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-		<div class="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+		<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+			<div class="bg-white/90 backdrop-blur-sm px-8 py-12 shadow-2xl sm:rounded-3xl sm:px-12 border border-white/50">
 			<form class="space-y-6" method="POST" action="?/signup" use:enhance={() => {
 				isLoading = true;
 				return async ({ update }) => {
@@ -186,11 +205,17 @@
 						{#if isLoading}
 							<div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
 						{:else}
-							Create Account
+							🌟 Join Our Community
 						{/if}
 					</button>
 				</div>
 			</form>
+				<!-- Welcome message -->
+				<div class="mt-8 text-center">
+					<p class="text-sm text-gray-600">
+						🌈 Ready to discover the joy of Mahjong with wonderful people?
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>

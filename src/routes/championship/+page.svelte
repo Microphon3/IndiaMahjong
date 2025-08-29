@@ -94,11 +94,12 @@
 		
 		<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
 			<div class="mx-auto max-w-4xl text-center">
-				<!-- Badge -->
-				<div class="flex justify-center mb-6">
-					<div class="inline-flex items-center rounded-full bg-yellow-100 px-4 py-2 text-sm font-medium text-yellow-800">
+				<!-- Premium Badge -->
+				<div class="flex justify-center mb-8">
+					<div class="inline-flex items-center rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-200 px-6 py-3 text-sm font-medium text-amber-900 shadow-sm">
+						<div class="w-2 h-2 bg-amber-500 rounded-full mr-3 animate-pulse"></div>
 						<Crown class="w-4 h-4 mr-2" />
-						Official Championship
+						Prestigious Championship • Excellence Awaits
 					</div>
 				</div>
 				
@@ -114,14 +115,36 @@
 					</div>
 				</div>
 				
-				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
-					<span class="text-yellow-600">India Mahjong</span> Championship
+				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6 leading-tight">
+					India's Most <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600">Celebrated</span><br/>Mahjong Championship
 				</h1>
 				
-				<p class="text-xl leading-8 text-gray-600 mb-10">
-					The most prestigious Mahjong tournament in India. Where the nation's best players compete 
-					for glory, honor, and the ultimate championship title.
+				<p class="text-xl leading-8 text-gray-700 mb-4 max-w-3xl mx-auto">
+					Where passionate players come together to celebrate skill, friendship, and the 
+					beautiful game we all love.
 				</p>
+
+				<!-- Trust Indicators -->
+				<div class="flex flex-wrap items-center justify-center gap-6 mb-12 text-sm text-gray-600">
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Welcoming Community</span>
+					</div>
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Fair Play Guaranteed</span>
+					</div>
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Celebrate Together</span>
+					</div>
+				</div>
 
 				<!-- Championship Stats -->
 				<div class="grid grid-cols-1 gap-6 sm:grid-cols-3 mb-12">
@@ -156,21 +179,23 @@
 					</div>
 				</div>
 				
-				<!-- CTA Buttons -->
-				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+				<!-- Premium CTA Buttons -->
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
 					<a
 						href="#register"
-						class="w-full sm:w-auto rounded-md bg-yellow-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600 transition-all duration-200 text-center transform hover:scale-105"
+						class="w-full sm:w-auto group inline-flex items-center justify-center bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 px-10 py-5 rounded-2xl text-lg font-bold text-white shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 transform hover:scale-105 border-4 border-white/20"
 					>
-						<Trophy class="h-5 w-5 mr-2 inline" />
-						Register Now
+						<div class="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center mr-3 group-hover:bg-white/30 transition-colors">
+							<Trophy class="h-4 w-4 text-white" />
+						</div>
+						Join the Celebration
 					</a>
 					<a
 						href="#champions"
-						class="w-full sm:w-auto flex items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 transition-colors"
+						class="w-full sm:w-auto inline-flex items-center justify-center bg-white/90 backdrop-blur-sm border-2 border-amber-200 hover:border-amber-300 px-8 py-4 rounded-2xl text-base font-bold text-amber-700 hover:bg-amber-50 shadow-lg hover:shadow-xl transition-all duration-300"
 					>
-						<Medal class="h-4 w-4" />
-						View Champions
+						<Medal class="h-5 w-5 mr-3" />
+						Meet Our Champions
 					</a>
 				</div>
 			</div>
@@ -205,7 +230,8 @@
 								{currentTournament.name}
 							</h2>
 							<p class="text-lg text-gray-600 max-w-2xl mx-auto">
-								The premier championship where India's finest players compete for glory and the largest prize pool in Mahjong history.
+								A wonderful celebration where India's most passionate players come together 
+				to share their love for this beautiful game.
 							</p>
 						</div>
 
@@ -220,7 +246,7 @@
 									<div>
 										<div class="font-semibold text-gray-900 mb-1">Tournament Dates</div>
 										<div class="text-gray-600">{formatDate(currentTournament.startDate)} - {formatDate(currentTournament.endDate)}</div>
-										<div class="text-sm text-emerald-600 font-medium mt-1">3 days of intense competition</div>
+										<div class="text-sm text-emerald-600 font-medium mt-1">3 wonderful days together</div>
 									</div>
 								</div>
 								
@@ -231,7 +257,7 @@
 									<div>
 										<div class="font-semibold text-gray-900 mb-1">{currentTournament.venue}</div>
 										<div class="text-gray-600">{currentTournament.address}</div>
-										<div class="text-sm text-emerald-600 font-medium mt-1">World-class facilities</div>
+										<div class="text-sm text-emerald-600 font-medium mt-1">Beautiful, welcoming venue</div>
 									</div>
 								</div>
 								
@@ -258,7 +284,7 @@
 									<div>
 										<div class="font-semibold text-gray-900 mb-1">Prize Pool</div>
 										<div class="text-2xl font-bold text-emerald-600">₹{currentTournament.prizePool.toLocaleString('en-IN')}</div>
-										<div class="text-sm text-gray-600 mt-1">Largest in Indian Mahjong history</div>
+										<div class="text-sm text-gray-600 mt-1">Celebrating our community together</div>
 									</div>
 								</div>
 								
@@ -280,7 +306,7 @@
 									<div>
 										<div class="font-semibold text-gray-900 mb-1">Entry Fee</div>
 										<div class="text-xl font-bold text-gray-900">₹{currentTournament.entryFee.toLocaleString('en-IN')}</div>
-										<div class="text-sm text-gray-600 mt-1">Includes meals & tournament kit</div>
+										<div class="text-sm text-gray-600 mt-1">Includes delicious meals & welcome kit</div>
 									</div>
 								</div>
 							</div>
@@ -308,11 +334,11 @@
 							<div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
 								<button class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-yellow-600 px-10 py-4 text-lg font-semibold text-white shadow-lg hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600 transition-all duration-200 transform hover:scale-105">
 									<Trophy class="w-5 h-5 mr-2" />
-									Register Now - ₹{currentTournament.entryFee.toLocaleString('en-IN')}
+									🎉 Join the Celebration - ₹{currentTournament.entryFee.toLocaleString('en-IN')}
 								</button>
 								<button class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition-colors">
 									<Clock class="w-4 h-4 mr-2" />
-									View Rules & Format
+									📖 Learn More & Rules
 								</button>
 							</div>
 							
@@ -330,9 +356,9 @@
 	<div class="bg-gray-50 py-16 sm:py-24">
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center mb-16">
-				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Regional Qualifiers</h2>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Regional Celebrations</h2>
 				<p class="text-lg text-gray-600">
-					Qualify through regional tournaments to earn your spot in the National Championship
+					Join wonderful regional gatherings and connect with players in your area
 				</p>
 			</div>
 
@@ -444,9 +470,9 @@
 	<div id="champions" class="bg-white py-16 sm:py-24">
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center mb-16">
-				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Hall of Champions</h2>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">Our Wonderful Champions</h2>
 				<p class="text-lg text-gray-600">
-					Celebrating the masters who have claimed the ultimate title and inspired a generation
+					Celebrating the talented players who inspire our community with their passion and skill
 				</p>
 			</div>
 
@@ -510,11 +536,11 @@
 			<!-- Champions Legacy -->
 			<div class="mt-16 text-center">
 				<div class="bg-gradient-to-r from-yellow-50 to-emerald-50 rounded-2xl p-8">
-					<h3 class="text-xl font-bold text-gray-900 mb-4">Join the Legacy</h3>
-					<p class="text-gray-600 mb-6">Will your name be added to this prestigious list? The path to championship starts with a single registration.</p>
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Become Part of Our Story</h3>
+					<p class="text-gray-600 mb-6">Every champion started as someone who simply loved the game. Your journey could be next!</p>
 					<a href="#register" class="inline-flex items-center rounded-lg bg-yellow-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 transition-colors">
 						<Trophy class="w-4 h-4 mr-2" />
-						Start Your Journey
+						🌟 Begin Your Adventure
 					</a>
 				</div>
 			</div>

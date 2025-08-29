@@ -6,26 +6,28 @@
 		{
 			id: 1,
 			title: 'Mahjong Fundamentals',
-			instructor: 'Master Chen Wei',
+			instructor: 'Chen Wei',
 			level: 'Beginner',
 			duration: 120,
 			students: 45,
 			rating: 4.9,
-			price: 2999,
-			description: 'Learn the basic rules, tiles, and fundamental strategies of Mahjong.',
-			image: '/api/placeholder/300/200'
+			price: 1200,
+			description: 'Learn the basic rules, tiles, and fundamental strategies of Mahjong in a patient, supportive environment.',
+			image: '/api/placeholder/300/200',
+			teacherNote: 'Patient & encouraging'
 		},
 		{
 			id: 2,
 			title: 'Advanced Scoring Techniques',
-			instructor: 'Dr. Priya Sharma',
+			instructor: 'Priya Sharma',
 			level: 'Advanced',
 			duration: 180,
 			students: 23,
 			rating: 4.8,
-			price: 4999,
-			description: 'Master complex scoring patterns and strategic combinations.',
-			image: '/api/placeholder/300/200'
+			price: 1800,
+			description: 'Explore complex scoring patterns and strategic combinations with personalized guidance.',
+			image: '/api/placeholder/300/200',
+			teacherNote: 'Detail-oriented approach'
 		},
 		{
 			id: 3,
@@ -35,9 +37,10 @@
 			duration: 90,
 			students: 32,
 			rating: 4.7,
-			price: 3499,
-			description: 'Understand opponent behavior and psychological aspects of the game.',
-			image: '/api/placeholder/300/200'
+			price: 1400,
+			description: 'Understand opponent behavior and develop your intuitive game reading skills.',
+			image: '/api/placeholder/300/200',
+			teacherNote: 'Intuitive teaching style'
 		}
 	];
 </script>
@@ -56,71 +59,103 @@
 		
 		<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
 			<div class="mx-auto max-w-4xl text-center">
-				<!-- Badge -->
-				<div class="flex justify-center mb-6">
-					<div class="inline-flex items-center rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-800">
-						<BookOpen class="w-4 h-4 mr-2" />
-						Expert-Led Classes
+				<!-- Premium Badge -->
+				<div class="flex justify-center mb-8">
+					<div class="inline-flex items-center rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-200 px-6 py-3 text-sm font-medium text-amber-900 shadow-sm">
+						<div class="w-2 h-2 bg-amber-500 rounded-full mr-3 animate-pulse"></div>
+						Patient Teachers • Personalized Learning
 					</div>
 				</div>
 				
-				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
-					Master <span class="text-emerald-600">Mahjong</span> with Expert Classes
+				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6 leading-tight">
+					Learn <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700">麻將 Mahjong</span><br/>
+					Your Way
 				</h1>
 				
-				<p class="text-xl leading-8 text-gray-600 mb-10">
-					Learn from India's top Mahjong instructors. From beginner fundamentals to advanced strategies, 
-					find the perfect class to elevate your game and join thousands of successful students.
+				<p class="text-xl leading-8 text-gray-700 mb-4 max-w-3xl mx-auto">
+					Connect with patient, experienced teachers who understand your learning journey. 
+					From your first tile to advanced strategy, find the perfect guide for your path.
 				</p>
 
-				<!-- Stats -->
-				<div class="grid grid-cols-1 gap-6 sm:grid-cols-3 mb-12">
-					<div class="text-center">
-						<div class="flex justify-center mb-3">
-							<div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
-								<Users class="w-6 h-6 text-emerald-600" />
-							</div>
+				<!-- Trust Indicators -->
+				<div class="flex flex-wrap items-center justify-center gap-6 mb-12 text-sm text-gray-600">
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
 						</div>
-						<div class="text-2xl font-bold text-gray-900">2,500+</div>
-						<div class="text-sm text-gray-600">Students Taught</div>
+						<span class="font-medium">Experienced Teachers</span>
 					</div>
-					
-					<div class="text-center">
-						<div class="flex justify-center mb-3">
-							<div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
-								<Award class="w-6 h-6 text-emerald-600" />
-							</div>
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
 						</div>
-						<div class="text-2xl font-bold text-gray-900">4.9/5</div>
-						<div class="text-sm text-gray-600">Average Rating</div>
+						<span class="font-medium">Pay Directly to Teacher</span>
 					</div>
-					
-					<div class="text-center">
-						<div class="flex justify-center mb-3">
-							<div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
-								<Target class="w-6 h-6 text-emerald-600" />
-							</div>
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
 						</div>
-						<div class="text-2xl font-bold text-gray-900">95%</div>
-						<div class="text-sm text-gray-600">Success Rate</div>
+						<span class="font-medium">Flexible Schedule</span>
+					</div>
+				</div>
+
+				<!-- Premium Stats -->
+				<div class="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/50 p-8 sm:p-12 mb-12">
+					<div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-400/10 via-amber-400/10 to-purple-400/10"></div>
+					
+					<div class="relative grid grid-cols-1 gap-8 sm:grid-cols-3">
+						<div class="text-center">
+							<div class="flex justify-center mb-4">
+								<div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center shadow-xl">
+									<Users class="w-8 h-8 text-white" />
+								</div>
+							</div>
+							<div class="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-1">2,500+</div>
+							<div class="text-sm font-medium text-gray-600">Happy Learners</div>
+						</div>
+						
+						<div class="text-center">
+							<div class="flex justify-center mb-4">
+								<div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-xl">
+									<Award class="w-8 h-8 text-white" />
+								</div>
+							</div>
+							<div class="text-3xl font-bold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent mb-1">4.9/5</div>
+							<div class="text-sm font-medium text-gray-600">Teacher Rating</div>
+						</div>
+						
+						<div class="text-center">
+							<div class="flex justify-center mb-4">
+								<div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-xl">
+									<Target class="w-8 h-8 text-white" />
+								</div>
+							</div>
+							<div class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-1">95%</div>
+							<div class="text-sm font-medium text-gray-600">Learning Success</div>
+						</div>
 					</div>
 				</div>
 				
-				<!-- CTA Buttons -->
-				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+				<!-- Premium CTAs -->
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
 					<a
 						href="#classes"
-						class="w-full sm:w-auto rounded-md bg-emerald-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 transition-all duration-200 text-center transform hover:scale-105"
+						class="w-full sm:w-auto group relative rounded-2xl bg-gradient-to-r from-emerald-600 to-green-600 px-12 py-6 text-lg font-bold text-white shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
 					>
-						<BookOpen class="h-5 w-5 mr-2 inline" />
-						Explore Classes
+						<div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-400 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+						<div class="relative flex items-center justify-center">
+							<BookOpen class="h-6 w-6 mr-3" />
+							<span>Browse Teachers</span>
+						</div>
 					</a>
 					<a
 						href="/community/join"
-						class="w-full sm:w-auto flex items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 transition-colors"
+						class="w-full sm:w-auto group relative rounded-2xl border-2 border-amber-200 bg-gradient-to-r from-amber-50 to-yellow-50 px-12 py-6 text-lg font-bold text-gray-900 shadow-xl hover:shadow-amber-500/20 hover:bg-gradient-to-r hover:from-amber-100 hover:to-yellow-100 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
 					>
-						<Users class="h-4 w-4" />
-						Join Community
+						<div class="relative flex items-center justify-center">
+							<Users class="h-6 w-6 mr-3 text-amber-700" />
+							<span>Join Our Community</span>
+						</div>
 					</a>
 				</div>
 			</div>
@@ -197,14 +232,14 @@
 								{classItem.description}
 							</p>
 							
-							<!-- Instructor -->
+							<!-- Teacher Profile -->
 							<div class="flex items-center mb-4">
-								<div class="w-10 h-10 bg-gradient-to-br {index === 0 ? 'from-blue-500 to-blue-600' : index === 1 ? 'from-purple-500 to-purple-600' : 'from-orange-500 to-orange-600'} rounded-full flex items-center justify-center">
-									<span class="text-white font-semibold text-sm">{classItem.instructor.split(' ').map(n => n[0]).join('')}</span>
+								<div class="w-12 h-12 bg-gradient-to-br {index === 0 ? 'from-emerald-500 to-green-600' : index === 1 ? 'from-amber-500 to-yellow-600' : 'from-purple-500 to-indigo-600'} rounded-xl flex items-center justify-center shadow-lg">
+									<span class="text-white font-bold text-sm">{classItem.instructor.split(' ').map(n => n[0]).join('')}</span>
 								</div>
-								<div class="ml-3">
-									<p class="text-sm font-medium text-gray-900">{classItem.instructor}</p>
-									<p class="text-xs text-gray-500">Expert Instructor</p>
+								<div class="ml-4">
+									<p class="text-sm font-bold text-gray-900">{classItem.instructor}</p>
+									<p class="text-xs text-emerald-600 font-medium">{classItem.teacherNote}</p>
 								</div>
 							</div>
 							
@@ -221,14 +256,17 @@
 							</div>
 							
 							<!-- Price and CTA -->
-							<div class="flex items-center justify-between">
-								<div class="text-2xl font-bold text-emerald-600">
-									₹{classItem.price.toLocaleString('en-IN')}
+							<div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-4">
+								<div class="flex items-center justify-between">
+									<div>
+										<div class="text-lg font-bold text-gray-900">₹{classItem.price.toLocaleString('en-IN')}</div>
+										<div class="text-xs text-gray-600">Pay directly to teacher</div>
+									</div>
+									<button class="inline-flex items-center rounded-lg bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:shadow-md transition-all duration-200">
+										Connect
+										<ChevronRight class="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+									</button>
 								</div>
-								<button class="inline-flex items-center rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 group-hover:scale-105 transition-all duration-200">
-									Enroll Now
-									<ChevronRight class="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-								</button>
 							</div>
 						</div>
 						

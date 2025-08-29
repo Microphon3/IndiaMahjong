@@ -143,9 +143,9 @@
 					<Award class="w-6 h-6 text-emerald-600" />
 				</div>
 			</div>
-			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Experts</h2>
+			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Patient Teachers</h2>
 			<p class="mt-4 text-lg leading-8 text-gray-600">
-				Master players specializing in different Mahjong styles and rule systems
+				Experienced players who make learning enjoyable and accessible
 			</p>
 		</div>
 
@@ -190,9 +190,9 @@
 						<Users class="w-6 h-6 text-blue-600" />
 					</div>
 				</div>
-				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Community</h2>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Community Builders</h2>
 				<p class="mt-4 text-lg leading-8 text-gray-600">
-					Building and nurturing the India Mahjong community
+					Connecting players across India
 				</p>
 			</div>
 
@@ -237,9 +237,9 @@
 					<Handshake class="w-6 h-6 text-purple-600" />
 				</div>
 			</div>
-			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Partnerships</h2>
+			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Venue Partners</h2>
 			<p class="mt-4 text-lg leading-8 text-gray-600">
-				Connecting Mahjong with brands, venues, and cultural events
+				Building bridges with cafes and cultural spaces
 			</p>
 		</div>
 
@@ -284,9 +284,9 @@
 						<ShoppingBag class="w-6 h-6 text-orange-600" />
 					</div>
 				</div>
-				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Marketplace</h2>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Product Curators</h2>
 				<p class="mt-4 text-lg leading-8 text-gray-600">
-					Curating and sourcing the finest Mahjong products and accessories
+					Sourcing quality sets and accessories
 				</p>
 			</div>
 

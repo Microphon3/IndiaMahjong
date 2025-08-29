@@ -97,38 +97,61 @@
 	<!-- Hero Section - Modern & Clean -->
 	<div class="relative bg-gradient-to-br from-emerald-50 via-white to-green-50">
 		<div class="absolute inset-0 bg-grid-gray-900/[0.04] bg-[size:20px_20px]" aria-hidden="true"></div>
-		<div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
+		<div class="relative mx-auto max-w-7xl px-6 py-24 lg:px-8">
 			<div class="text-center mb-12">
-				<div class="inline-flex items-center rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-800 mb-6">
-					<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2"></span>
-					72 active games today
+				<!-- Premium Badge -->
+				<div class="inline-flex items-center rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-200 px-6 py-3 text-sm font-medium text-amber-900 mb-8 shadow-sm">
+					<div class="w-2 h-2 bg-amber-500 rounded-full mr-3 animate-pulse"></div>
+					Beautiful Venues • Welcoming Hosts
 				</div>
 				
-				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
-					Join a <span class="text-emerald-600">Mahjong Game</span><br/>
-					Near You
+				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6 leading-tight">
+					Find Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700">Perfect Table</span>
 				</h1>
 				
-				<p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-					Connect with passionate players across India. Home-hosted sessions with tea, snacks, and great company.
+				<p class="text-xl text-gray-700 mb-4 max-w-3xl mx-auto leading-relaxed">
+					Join wonderful hosts across India who love sharing Mahjong. From warm homes to 
+					beautiful clubs, find your perfect table and new friends.
 				</p>
+
+				<!-- Trust Indicators -->
+				<div class="flex flex-wrap items-center justify-center gap-6 mb-12 text-sm text-gray-600">
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Welcoming Hosts</span>
+					</div>
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Book Direct with Host</span>
+					</div>
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Tea & Snacks Included</span>
+					</div>
+				</div>
 			</div>
 
-			<!-- Simplified Search Bar -->
+			<!-- Premium Search Bar -->
 			<div class="max-w-2xl mx-auto">
-				<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-1">
+				<div class="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/50 p-2">
 					<div class="flex">
-						<div class="flex-1 px-6 py-4">
+						<div class="flex-1 px-8 py-5">
 							<input
 								type="text"
 								bind:value={searchQuery}
-								placeholder="Search by city, area, or game style..."
-								class="w-full text-lg text-gray-900 placeholder-gray-500 bg-transparent border-0 p-0 focus:ring-0 focus:outline-none"
+								placeholder="Search by city, neighborhood, or style..."
+								class="w-full text-lg text-gray-900 placeholder-gray-400 bg-transparent border-0 p-0 focus:ring-0 focus:outline-none font-medium"
 							/>
 						</div>
-						<button class="bg-emerald-600 text-white rounded-xl px-8 py-4 text-sm font-semibold hover:bg-emerald-700 transition-colors flex items-center">
-							<Search class="w-5 h-5 mr-2" />
-							Find Games
+						<button class="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white rounded-xl px-6 py-3 text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 flex items-center">
+							<Search class="w-5 h-5 mr-3" />
+							Discover Tables
 						</button>
 					</div>
 				</div>
@@ -136,111 +159,128 @@
 		</div>
 	</div>
 
-	<!-- Filters - Zomato Style -->
-	<div class="bg-gray-50 border-t border-gray-200">
-		<div class="mx-auto max-w-7xl px-6 py-4 lg:px-8">
-			<div class="flex flex-wrap items-center gap-3">
-				<div class="flex items-center gap-2">
-					<Filter class="w-4 h-4 text-gray-600" />
-					<span class="text-sm font-medium text-gray-700">Filters:</span>
+	<!-- Premium Filters -->
+	<div class="bg-gradient-to-r from-gray-50 via-white to-emerald-50 border-t border-gray-200/50">
+		<div class="mx-auto max-w-7xl px-6 py-6 lg:px-8">
+			<div class="flex flex-wrap items-center gap-4">
+				<div class="flex items-center gap-3">
+					<div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
+						<Filter class="w-4 h-4 text-white" />
+					</div>
+					<span class="text-sm font-bold text-gray-800">Find Your Vibe:</span>
 				</div>
-				<button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-					Available now
+				<button class="inline-flex items-center px-3 py-2 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 rounded-lg text-sm font-medium text-emerald-700 hover:shadow-sm transition-all duration-200">
+					Available Today
 				</button>
-				<button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-					Beginner friendly
+				<button class="inline-flex items-center px-3 py-2 border border-amber-200 bg-amber-50 hover:bg-amber-100 rounded-lg text-sm font-medium text-amber-700 hover:shadow-sm transition-all duration-200">
+					Welcoming to New Players
 				</button>
-				<button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-					Professional setup
+				<button class="inline-flex items-center px-3 py-2 border border-purple-200 bg-purple-50 hover:bg-purple-100 rounded-lg text-sm font-medium text-purple-700 hover:shadow-sm transition-all duration-200">
+					Beautiful Setup
 				</button>
-				<button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-					Snacks included
+				<button class="inline-flex items-center px-3 py-2 border border-rose-200 bg-rose-50 hover:bg-rose-100 rounded-lg text-sm font-medium text-rose-700 hover:shadow-sm transition-all duration-200">
+					Tea & Treats
 				</button>
 			</div>
 		</div>
 	</div>
 
-	<!-- Sort & Results Count -->
-	<div class="mx-auto max-w-7xl px-6 lg:px-8 py-4">
-		<div class="flex items-center justify-between">
-			<p class="text-sm text-gray-600">
-				<span class="font-semibold text-gray-900">72 games</span> found for your search
-			</p>
+	<!-- Premium Sort & Results Count -->
+	<div class="mx-auto max-w-7xl px-6 lg:px-8 py-6">
+		<div class="flex items-center justify-between bg-gradient-to-r from-white via-gray-50 to-white rounded-2xl p-6 border border-gray-200/50 shadow-sm">
+			<div class="flex items-center">
+				<div class="w-3 h-3 bg-emerald-500 rounded-full mr-3 animate-pulse"></div>
+				<p class="text-base font-medium text-gray-800">
+					<span class="font-bold text-emerald-600">{filteredVenues.length} wonderful venues</span> waiting to welcome you
+				</p>
+			</div>
 			<div class="flex items-center gap-4">
-				<button class="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+				<button class="inline-flex items-center px-3 py-2 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 rounded-lg text-sm font-medium text-emerald-700 hover:shadow-sm transition-all duration-200">
 					<MapPin class="w-4 h-4 mr-2" />
-					Map view
+					Map View
 				</button>
-				<select class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-emerald-500 focus:border-emerald-500">
-					<option>Distance</option>
+				<select class="border-2 border-gray-200 bg-white rounded-xl px-4 py-3 text-sm font-medium focus:ring-emerald-500 focus:border-emerald-500 shadow-md hover:shadow-lg transition-all duration-300">
+					<option>Nearest First</option>
+					<option>Most Welcoming</option>
 					<option>Price: Low to High</option>
 					<option>Price: High to Low</option>
-					<option>Rating</option>
-					<option>Availability</option>
+					<option>Available Today</option>
 				</select>
 			</div>
 		</div>
 	</div>
 
-	<!-- Listings - Airbnb Style Cards -->
+	<!-- Premium Venue Cards -->
 	<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
-		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-			{#each paginatedVenues as venue}
-				<div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-					<div class="aspect-[4/3] bg-gradient-to-br from-emerald-100 to-emerald-200 relative">
-						<div class="absolute top-3 left-3 bg-white px-2 py-1 rounded text-xs font-medium">
-							{venue.hostType === 'home' ? 'Home' : 'Venue'}
+		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			{#each paginatedVenues as venue, index}
+				<div class="group bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer">
+					<div class="aspect-[4/3] bg-gradient-to-br {index % 4 === 0 ? 'from-emerald-100 to-green-200' : index % 4 === 1 ? 'from-amber-100 to-yellow-200' : index % 4 === 2 ? 'from-purple-100 to-indigo-200' : 'from-rose-100 to-pink-200'} relative">
+						<!-- Premium badges -->
+						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-xl text-xs font-bold text-gray-700 shadow-lg">
+							{venue.hostType === 'home' ? '🏠 Cozy Home' : '🏢 Beautiful Venue'}
 						</div>
-						<div class="absolute top-3 right-3 {venue.seatsAvailable > 0 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} px-2 py-1 rounded text-xs font-medium">
-							{venue.seatsAvailable > 0 ? `${venue.seatsAvailable} seats left` : 'Full'}
+						<div class="absolute top-4 right-4 {venue.seatsAvailable > 0 ? 'bg-emerald-100 text-emerald-800 border-emerald-200' : 'bg-red-100 text-red-800 border-red-200'} border-2 px-3 py-1 rounded-xl text-xs font-bold backdrop-blur-sm">
+							{venue.seatsAvailable > 0 ? `${venue.seatsAvailable} seats open` : 'Full'}
 						</div>
-						<div class="absolute bottom-3 left-3 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-xs">
-							{venue.location}
+						<div class="absolute bottom-4 left-4 bg-black/80 backdrop-blur text-white px-3 py-2 rounded-xl text-xs font-medium">
+							📍 {venue.location}
 						</div>
 					</div>
-					<div class="p-4">
-						<div class="flex items-start justify-between mb-2">
+					<div class="p-6">
+						<div class="flex items-start justify-between mb-3">
 							<div>
-								<h3 class="font-semibold text-gray-900">{venue.hostName}'s {venue.gameStyle}</h3>
-								<p class="text-sm text-gray-600">Hosted by {venue.hostName}</p>
+								<h3 class="font-bold text-gray-900 text-lg leading-tight">{venue.hostName}'s Table</h3>
+								<p class="text-sm text-emerald-600 font-medium">Hosted by {venue.hostName}</p>
 							</div>
-							<div class="flex items-center">
-								<Star class="w-4 h-4 text-yellow-400 fill-current" />
-								<span class="text-sm font-medium ml-1">{venue.rating}</span>
+							<div class="flex items-center bg-amber-50 px-2 py-1 rounded-lg">
+								<Star class="w-4 h-4 text-amber-500 fill-current mr-1" />
+								<span class="text-sm font-bold text-amber-700">{venue.rating}</span>
 							</div>
 						</div>
-						<div class="flex flex-wrap gap-1 mb-3">
-							<span class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">{venue.gameStyle}</span>
-							<span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">{venue.timing}</span>
-							<span class="inline-block {getBookingBadgeColor(venue.bookingType)} text-xs px-2 py-1 rounded capitalize">
-								{venue.bookingType}
+						
+						<p class="text-sm text-gray-600 mb-4 leading-relaxed">{venue.description}</p>
+						
+						<div class="flex flex-wrap gap-2 mb-4">
+							<span class="inline-flex items-center bg-emerald-50 text-emerald-700 text-xs px-3 py-1 rounded-lg font-medium border border-emerald-200">
+								🎲 {venue.gameStyle}
+							</span>
+							<span class="inline-flex items-center bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-lg font-medium border border-blue-200">
+								🕐 {venue.timing}
+							</span>
+							<span class="inline-flex items-center {getBookingBadgeColor(venue.bookingType)} text-xs px-3 py-1 rounded-lg font-medium border border-current/20">
+								✨ {getBookingText(venue.bookingType)}
 							</span>
 						</div>
-						<p class="text-sm text-gray-600 mb-3">{venue.description}</p>
-						<div class="flex items-center justify-between">
-							<div>
-								<span class="text-lg font-bold">₹{venue.pricePerSession.toLocaleString('en-IN')}</span>
-								<span class="text-sm text-gray-600"> /session</span>
+						
+						<div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-4">
+							<div class="flex items-center justify-between">
+								<div>
+									<div class="text-xl font-bold text-gray-900">₹{venue.pricePerSession.toLocaleString('en-IN')}</div>
+									<div class="text-xs text-gray-600 font-medium">Book directly with host</div>
+								</div>
+								<button 
+									class="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 {venue.seatsAvailable === 0 ? 'opacity-50 cursor-not-allowed' : ''}"
+									disabled={venue.seatsAvailable === 0}>
+									{venue.seatsAvailable === 0 ? 'Full' : venue.bookingType === 'waitlist' ? 'Join Waitlist' : 'Book Table'}
+								</button>
 							</div>
-							<button 
-								class="bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-emerald-700 {venue.seatsAvailable === 0 ? 'opacity-50 cursor-not-allowed' : ''}"
-								disabled={venue.seatsAvailable === 0}>
-								{venue.seatsAvailable === 0 ? 'Full' : venue.bookingType === 'waitlist' ? 'Join Waitlist' : 'Join Game'}
-							</button>
 						</div>
 					</div>
 				</div>
 			{/each}
 		</div>
 
-		<!-- Pagination -->
+		<!-- Premium Empty State -->
 		{#if filteredVenues.length === 0}
-			<div class="text-center py-12">
-				<div class="w-24 h-24 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-					<MapPin class="w-8 h-8 text-gray-400" />
+			<div class="text-center py-16">
+				<div class="w-28 h-28 mx-auto mb-6 bg-gradient-to-br from-emerald-100 to-green-200 rounded-3xl flex items-center justify-center">
+					<div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center">
+						<MapPin class="w-8 h-8 text-white" />
+					</div>
 				</div>
-				<h3 class="text-lg font-medium text-gray-900 mb-2">No venues found</h3>
-				<p class="text-gray-600">Try adjusting your filters or search criteria.</p>
+				<h3 class="text-2xl font-bold text-gray-900 mb-4">Looking for something specific?</h3>
+				<p class="text-lg text-gray-600 mb-6">We're always adding wonderful new hosts. Try adjusting your search or check back soon!</p>
 				
 				<!-- Debug Information -->
 				<div class="mt-6 p-4 bg-gray-100 rounded-lg text-sm text-gray-700 max-w-2xl mx-auto">
@@ -275,90 +315,107 @@
 				</div>
 			</div>
 		{:else if totalPages > 1}
-			<div class="text-center mt-12">
-				<div class="flex items-center justify-center space-x-2">
+			<div class="text-center mt-16">
+				<div class="inline-flex items-center bg-white/80 backdrop-blur-sm border border-white/50 rounded-2xl shadow-2xl p-2">
 					<button 
 						onclick={() => currentPage = Math.max(1, currentPage - 1)}
 						disabled={currentPage === 1}
-						class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+						class="px-6 py-3 text-sm font-bold text-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 rounded-xl shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
 					>
-						Previous
+						← Previous
 					</button>
-					<span class="px-4 py-2 text-sm text-gray-700">
+					<div class="px-8 py-3 text-sm font-bold text-gray-800">
 						Page {currentPage} of {totalPages}
-					</span>
+					</div>
 					<button 
 						onclick={() => currentPage = Math.min(totalPages, currentPage + 1)}
 						disabled={currentPage === totalPages}
-						class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+						class="px-6 py-3 text-sm font-bold text-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 rounded-xl shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
 					>
-						Next
+						Next →
 					</button>
 				</div>
 			</div>
 		{/if}
 	</div>
 
-	<!-- Results Summary -->
+	<!-- Premium Results Summary -->
 	{#if filteredVenues.length > 0}
-		<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-4">
-			<p class="text-center text-sm text-gray-600">
-				Showing {paginatedVenues.length} of {filteredVenues.length} venues
-			</p>
+		<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-8">
+			<div class="text-center bg-gradient-to-r from-emerald-50 via-white to-green-50 rounded-2xl py-6 px-8 border border-emerald-200/50">
+				<p class="text-sm font-medium text-gray-700">
+					Showing <span class="font-bold text-emerald-600">{paginatedVenues.length}</span> of <span class="font-bold text-emerald-600">{filteredVenues.length}</span> welcoming venues
+					<span class="text-emerald-600 ml-2">🏠</span>
+				</p>
+			</div>
 		</div>
 	{/if}
 
-	<!-- CTA Section -->
-	<div class="bg-gradient-to-br from-emerald-600 to-green-700 py-16 sm:py-24">
-		<div class="mx-auto max-w-7xl px-6 lg:px-8">
-			<div class="relative isolate overflow-hidden bg-gradient-to-b from-emerald-50/10 to-emerald-100/10 px-6 py-20 sm:rounded-3xl sm:px-10 sm:py-24 md:px-12 lg:px-16">
+	<!-- Premium CTA Section -->
+	<div class="bg-gradient-to-br from-emerald-600 via-green-600 to-emerald-700 py-20 sm:py-28 relative overflow-hidden">
+		<!-- Background Pattern -->
+		<div class="absolute inset-0 bg-grid-white/[0.05] bg-[size:30px_30px]" aria-hidden="true"></div>
+		<div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="relative isolate overflow-hidden bg-white/5 backdrop-blur-sm px-8 py-24 sm:rounded-3xl sm:px-12 sm:py-32 md:px-16 lg:px-20 border border-white/10 shadow-2xl">
 				<div class="mx-auto max-w-2xl text-center">
-					<h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
-						Own a Venue?
+					<div class="inline-flex items-center rounded-full bg-white/20 border border-white/30 px-6 py-3 text-sm font-medium text-white mb-8 shadow-lg backdrop-blur-sm">
+						<div class="w-2 h-2 bg-white rounded-full mr-3 animate-pulse"></div>
+						Partner With Us
+					</div>
+					<h2 class="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6 leading-tight">
+						Host Beautiful <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-200 to-amber-300">Mahjong Tables</span>
 					</h2>
-					<p class="text-xl leading-8 text-emerald-100 mb-8">
-						List your venue on our platform and connect with passionate Mahjong players in your area. 
-						Grow your business and build the community.
+					<p class="text-xl leading-8 text-emerald-100 mb-12">
+						Welcome players to your space. Build friendships, share great moments, 
+						and spread the joy of Mahjong.
 					</p>
 					
-					<!-- Benefits -->  
-					<div class="grid gap-6 sm:grid-cols-3 mb-10">
-						<div class="text-center">
-							<div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-								<Users class="w-6 h-6 text-white" />
+					<!-- Premium Benefits -->  
+					<div class="grid gap-8 sm:grid-cols-3 mb-12">
+						<div class="text-center group">
+							<div class="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+								<Users class="w-8 h-8 text-white" />
 							</div>
-							<h4 class="font-semibold text-white mb-2">More Customers</h4>
-							<p class="text-sm text-emerald-100">Reach 2,500+ active players</p>
+							<h4 class="text-lg font-bold text-white mb-3">Warm Community</h4>
+							<p class="text-emerald-100 leading-relaxed">Connect with 2,500+ passionate<br/>players in your area</p>
 						</div>
 						
-						<div class="text-center">
-							<div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-								<Calendar class="w-6 h-6 text-white" />
+						<div class="text-center group">
+							<div class="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+								<Calendar class="w-8 h-8 text-white" />
 							</div>
-							<h4 class="font-semibold text-white mb-2">Easy Booking</h4>
-							<p class="text-sm text-emerald-100">Automated reservation system</p>
+							<h4 class="text-lg font-bold text-white mb-3">Simple Booking</h4>
+							<p class="text-emerald-100 leading-relaxed">Easy reservation system<br/>for your peace of mind</p>
 						</div>
 						
-						<div class="text-center">
-							<div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-								<Zap class="w-6 h-6 text-white" />
+						<div class="text-center group">
+							<div class="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+								<Heart class="w-8 h-8 text-white" />
 							</div>
-							<h4 class="font-semibold text-white mb-2">Grow Revenue</h4>
-							<p class="text-sm text-emerald-100">Maximize table utilization</p>
+							<h4 class="text-lg font-bold text-white mb-3">Share the Joy</h4>
+							<p class="text-emerald-100 leading-relaxed">Build lasting friendships<br/>through the game you love</p>
 						</div>
 					</div>
 					
-					<div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+					<div class="flex flex-col sm:flex-row gap-6 items-center justify-center">
 						<a
 							href="/venue/register"
-							class="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-white px-8 py-4 text-lg font-semibold text-emerald-600 shadow-lg hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all duration-200 transform hover:scale-105"
+							class="w-full sm:w-auto group inline-flex items-center justify-center bg-white px-10 py-5 rounded-2xl text-lg font-bold text-emerald-600 shadow-2xl hover:shadow-white/25 transition-all duration-300 transform hover:scale-105 border-4 border-white/20"
 						>
-							<MapPin class="w-5 h-5 mr-2" />
-							List Your Venue
+							<div class="w-6 h-6 bg-emerald-600 rounded-lg flex items-center justify-center mr-3 group-hover:bg-emerald-500 transition-colors">
+								<Home class="w-4 h-4 text-white" />
+							</div>
+							Become a Host
 						</a>
 						
-						<div class="text-emerald-100 text-sm">
-							✓ Free listing &nbsp; ✓ No setup fees &nbsp; ✓ 24/7 support
+						<div class="bg-white/10 backdrop-blur border border-white/20 rounded-2xl px-6 py-3">
+							<div class="text-white text-sm font-medium text-center">
+								<span class="text-emerald-200">🎯</span> No listing fees
+								<span class="mx-3 text-white/40">•</span>
+								<span class="text-emerald-200">💝</span> Full support
+								<span class="mx-3 text-white/40">•</span>
+								<span class="text-emerald-200">🌟</span> Join 100+ hosts
+							</div>
 						</div>
 					</div>
 				</div>

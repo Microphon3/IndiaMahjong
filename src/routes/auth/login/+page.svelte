@@ -16,26 +16,45 @@
 	<title>Sign In - India Mahjong</title>
 </svelte:head>
 
-<div class="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
-	<div class="sm:mx-auto sm:w-full sm:max-w-md">
-		<div class="flex justify-center">
-			<div class="w-12 h-12 bg-gradient-to-br from-emerald-600 to-green-700 rounded-lg flex items-center justify-center">
-				<span class="text-white font-bold text-xl">麻</span>
+<!-- Premium Auth Background -->
+<div class="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50 relative overflow-hidden">
+	<div class="absolute inset-0 bg-grid-gray-900/[0.04] bg-[size:20px_20px]" aria-hidden="true"></div>
+	<!-- Decorative blur -->
+	<div class="absolute top-0 right-0 -translate-y-12 translate-x-12 w-96 h-96 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full opacity-10 blur-3xl" aria-hidden="true"></div>
+	
+	<div class="relative flex min-h-screen flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+		<div class="sm:mx-auto sm:w-full sm:max-w-md">
+			<!-- Premium Logo -->
+			<div class="flex justify-center mb-8">
+				<div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-700 rounded-2xl flex items-center justify-center shadow-2xl">
+					<span class="text-white font-bold text-2xl">麻</span>
+				</div>
 			</div>
+			
+			<!-- Premium Badge -->
+			<div class="flex justify-center mb-6">
+				<div class="inline-flex items-center rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-200 px-4 py-2 text-sm font-medium text-amber-900 shadow-sm">
+					<div class="w-2 h-2 bg-amber-500 rounded-full mr-2 animate-pulse"></div>
+					🏠 Welcome Home
+				</div>
+			</div>
+			
+			<h1 class="text-center text-3xl font-bold leading-9 tracking-tight text-gray-900 mb-3">
+				Welcome Back!
+			</h1>
+			<p class="text-center text-lg text-gray-700 mb-2">
+				Ready to reconnect with your Mahjong family?
+			</p>
+			<p class="text-center text-sm text-gray-600">
+				New to our community?
+				<a href="/auth/signup" class="font-semibold text-emerald-600 hover:text-emerald-500">
+					🌟 Join us here
+				</a>
+			</p>
 		</div>
-		<h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-			Sign in to your account
-		</h2>
-		<p class="mt-2 text-center text-sm text-gray-600">
-			Or
-			<a href="/auth/signup" class="font-semibold text-emerald-600 hover:text-emerald-500">
-				create a new account
-			</a>
-		</p>
-	</div>
 
-	<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-		<div class="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+		<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+			<div class="bg-white/90 backdrop-blur-sm px-8 py-12 shadow-2xl sm:rounded-3xl sm:px-12 border border-white/50">
 			<form class="space-y-6" method="POST" action="?/signin" use:enhance={() => {
 				isLoading = true;
 				return async ({ update }) => {
@@ -122,36 +141,39 @@
 					<button
 						type="submit"
 						disabled={isLoading}
-						class="flex w-full justify-center rounded-md bg-emerald-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed"
+						class="flex w-full justify-center bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 px-6 py-4 rounded-2xl text-base font-bold text-white shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
 					>
 						{#if isLoading}
-							<div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+							<div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full mr-2"></div>
+							Welcoming you...
 						{:else}
-							Sign in
+							🏠 Welcome Home
 						{/if}
 					</button>
 				</div>
 			</form>
 		</div>
 
-		<div class="mt-6">
-			<div class="relative">
-				<div class="absolute inset-0 flex items-center">
-					<div class="w-full border-t border-gray-200" />
+			<div class="mt-8">
+				<div class="relative">
+					<div class="absolute inset-0 flex items-center">
+						<div class="w-full border-t border-emerald-200" />
+					</div>
+					<div class="relative flex justify-center text-sm font-bold leading-6">
+						<span class="bg-white px-6 text-emerald-700">🌱 New to our family?</span>
+					</div>
 				</div>
-				<div class="relative flex justify-center text-sm font-medium leading-6">
-					<span class="bg-gray-50 px-6 text-gray-900">New to India Mahjong?</span>
-				</div>
-			</div>
 
-			<div class="mt-6">
-				<a
-					href="/auth/signup"
-					class="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent"
-				>
-					Create your account
-				</a>
+				<div class="mt-6">
+					<a
+						href="/auth/signup"
+						class="flex w-full items-center justify-center bg-white/90 backdrop-blur-sm border-2 border-emerald-200 hover:border-emerald-300 px-6 py-4 rounded-2xl text-base font-bold text-emerald-700 hover:bg-emerald-50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+					>
+						🎆 Join Our Community
+					</a>
+				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </div>

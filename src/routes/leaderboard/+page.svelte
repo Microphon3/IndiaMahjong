@@ -171,22 +171,51 @@
 </svelte:head>
 
 <div class="bg-white">
-	<!-- Header Section -->
-	<div class="relative isolate overflow-hidden bg-gradient-to-b from-emerald-100/20">
-		<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-			<div class="mx-auto max-w-2xl text-center">
-				<div class="flex justify-center mb-6">
-					<div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-700 rounded-full flex items-center justify-center">
-						<Trophy class="w-8 h-8 text-white" />
+	<!-- Premium Community Header -->
+	<div class="relative isolate overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-green-50">
+		<div class="absolute inset-0 bg-grid-gray-900/[0.04] bg-[size:20px_20px]" aria-hidden="true"></div>
+		<!-- Decorative blur -->
+		<div class="absolute top-0 right-0 -translate-y-12 translate-x-12 w-96 h-96 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full opacity-10 blur-3xl" aria-hidden="true"></div>
+		<div class="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<!-- Premium Badge -->
+				<div class="flex justify-center mb-8">
+					<div class="inline-flex items-center rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-200 px-6 py-3 text-sm font-medium text-amber-900 shadow-sm">
+						<div class="w-2 h-2 bg-amber-500 rounded-full mr-3 animate-pulse"></div>
+						🏆 Celebrating Our Players • Community Stars
 					</div>
 				</div>
-				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-					National Leaderboard
+				
+				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6 leading-tight">
+					Our Wonderful <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700">Community</span>
 				</h1>
-				<p class="mt-6 text-lg leading-8 text-gray-600">
-					Official rankings of India's top Mahjong players. Rankings updated after each tournament 
-					based on performance, consistency, and tournament participation.
+				
+				<p class="text-xl text-gray-700 mb-4 max-w-3xl mx-auto leading-relaxed">
+					Celebrating the passionate players who make our Mahjong family so special. 
+					Every name here represents dedication, friendship, and love for the game.
 				</p>
+
+				<!-- Trust Indicators -->
+				<div class="flex flex-wrap items-center justify-center gap-6 mb-12 text-sm text-gray-600">
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Supportive Players</span>
+					</div>
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Friendly Competition</span>
+					</div>
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Growing Together</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -253,8 +282,8 @@
 	<!-- Full Leaderboard -->
 	<div class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
 		<div class="mb-8">
-			<h2 class="text-2xl font-bold text-gray-900 mb-4">Complete Rankings</h2>
-			<p class="text-gray-600">Updated after each official tournament</p>
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Our Community Stars</h2>
+			<p class="text-gray-600">Celebrating everyone's journey and growth</p>
 		</div>
 
 		<div class="bg-white shadow-sm ring-1 ring-gray-200 rounded-lg overflow-hidden">
@@ -325,9 +354,9 @@
 	<div class="bg-gray-50">
 		<div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center mb-12">
-				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Regional Champions</h2>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Regional Community Leaders</h2>
 				<p class="mt-4 text-lg leading-8 text-gray-600">
-					Leading players from each major region across India
+					Wonderful players who bring their communities together through Mahjong
 				</p>
 			</div>
 
@@ -348,12 +377,12 @@
 		</div>
 	</div>
 
-	<!-- Recent Achievements -->
+	<!-- Community Celebrations -->
 	<div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
 		<div class="mx-auto max-w-2xl text-center mb-12">
-			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Recent Achievements</h2>
+			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Community Celebrations</h2>
 			<p class="mt-4 text-lg leading-8 text-gray-600">
-				Notable accomplishments and milestones from our community
+				Sharing joy and celebrating the special moments that make our community shine
 			</p>
 		</div>
 

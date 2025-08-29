@@ -700,16 +700,16 @@
 		}
 		
 		// Apply sorting
-		if (sortBy === 'Price: Low to High') {
+		if (sortBy === 'Price: Budget Friendly') {
 			filtered = filtered.sort((a, b) => a.price - b.price);
-		} else if (sortBy === 'Price: High to Low') {
+		} else if (sortBy === 'Price: Investment Pieces') {
 			filtered = filtered.sort((a, b) => b.price - a.price);
-		} else if (sortBy === 'Rating' || sortBy === 'Customer Rating') {
+		} else if (sortBy === 'Most Loved') {
 			filtered = filtered.sort((a, b) => b.rating - a.rating);
-		} else if (sortBy === 'Newest' || sortBy === 'Newest Arrivals') {
+		} else if (sortBy === 'New Arrivals') {
 			filtered = filtered.sort((a, b) => b.id - a.id); // Assume higher ID = newer
 		}
-		// 'Featured' or 'Sort by Featured' keeps original order
+		// 'Our Favorites' keeps original order
 		
 		filteredProducts = filtered;
 		totalPages = Math.ceil(filtered.length / itemsPerPage);
@@ -737,41 +737,67 @@
 </svelte:head>
 
 <div class="bg-white">
-	<!-- Hero Section - Modern & Clean -->
-	<div class="relative bg-gradient-to-br from-emerald-50 via-white to-green-50">
+	<!-- Premium Hero Section -->
+	<div class="relative bg-gradient-to-br from-emerald-50 via-white to-green-50 overflow-hidden">
 		<div class="absolute inset-0 bg-grid-gray-900/[0.04] bg-[size:20px_20px]" aria-hidden="true"></div>
-		<div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
+		<!-- Decorative blur -->
+		<div class="absolute top-0 right-0 -translate-y-12 translate-x-12 w-96 h-96 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full opacity-10 blur-3xl" aria-hidden="true"></div>
+		<div class="relative mx-auto max-w-7xl px-6 py-24 lg:px-8">
 			<div class="text-center mb-12">
-				<div class="inline-flex items-center rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-800 mb-6">
+				<!-- Premium Badge -->
+				<div class="inline-flex items-center rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-200 px-6 py-3 text-sm font-medium text-amber-900 mb-8 shadow-sm">
+					<div class="w-2 h-2 bg-amber-500 rounded-full mr-3 animate-pulse"></div>
 					<ShoppingCart class="w-4 h-4 mr-2" />
-					50+ premium products
+					Handpicked Collection • Trusted Artisans
 				</div>
 				
-				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">
-					Premium <span class="text-emerald-600">Mahjong</span><br/>
-					Marketplace
+				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6 leading-tight">
+					Beautiful <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700">Mahjong</span> Treasures
 				</h1>
 				
-				<p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-					Discover curated collections from trusted artisans. Tournament-grade tiles, professional tables, and unique collectibles.
+				<p class="text-xl text-gray-700 max-w-3xl mx-auto mb-4 leading-relaxed">
+					Discover wonderful pieces crafted by talented artisans across India and beyond.
+					From family heirloom sets to modern accessories.
 				</p>
+
+				<!-- Trust Indicators -->
+				<div class="flex flex-wrap items-center justify-center gap-6 mb-12 text-sm text-gray-600">
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Authentic Craftsmanship</span>
+					</div>
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Buy Direct from Artisans</span>
+					</div>
+					<div class="flex items-center">
+						<div class="w-5 h-5 text-green-600 mr-2">
+							<svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+						</div>
+						<span class="font-medium">Secure & Safe Shopping</span>
+					</div>
+				</div>
 			</div>
 
-			<!-- Simplified Search Bar -->
+			<!-- Premium Search Bar -->
 			<div class="max-w-2xl mx-auto">
-				<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-1">
+				<div class="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/50 p-2">
 					<div class="flex">
-						<div class="flex-1 px-6 py-4">
+						<div class="flex-1 px-8 py-5">
 							<input
 								type="text"
 								bind:value={searchQuery}
-								placeholder="Search tiles, tables, accessories, or brands..."
-								class="w-full text-lg text-gray-900 placeholder-gray-500 bg-transparent border-0 p-0 focus:ring-0 focus:outline-none"
+								placeholder="Search for sets, tables, or handcrafted pieces..."
+								class="w-full text-lg text-gray-900 placeholder-gray-400 bg-transparent border-0 p-0 focus:ring-0 focus:outline-none font-medium"
 							/>
 						</div>
-						<button class="bg-emerald-600 text-white rounded-xl px-8 py-4 text-sm font-semibold hover:bg-emerald-700 transition-colors flex items-center">
-							<Search class="w-5 h-5 mr-2" />
-							Search Products
+						<button class="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white rounded-xl px-6 py-3 text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 flex items-center">
+							<Search class="w-5 h-5 mr-3" />
+							Discover Treasures
 						</button>
 					</div>
 				</div>
@@ -779,60 +805,67 @@
 		</div>
 	</div>
 
-	<!-- Category Banner - Amazon Style -->
-	<div class="bg-gray-50 border-b">
-		<div class="mx-auto max-w-7xl px-6 py-4 lg:px-8">
-			<div class="flex items-center justify-between">
-				<div class="flex items-center space-x-4 text-sm">
-					<button class="bg-white border border-gray-300 px-3 py-2 rounded-md hover:bg-gray-50 font-medium">
-						<Filter class="w-4 h-4 inline mr-2" />
-						Filters
-					</button>
-					{#each [
-						{display: 'Mahjong Sets', value: 'Mahjong Sets'}, 
-						{display: 'Tables', value: 'Tables & Furniture'}, 
-						{display: 'Accessories', value: 'Accessories & Game Aids'}, 
-						{display: 'Fashion', value: 'Fashion & Lifestyle'}, 
-						{display: 'Learning', value: 'Learning & Community'}, 
-						{display: 'Art', value: 'Collectibles & Art'}
-					] as cat}
-						<button 
-							class="px-3 py-2 rounded-md hover:bg-white transition-colors {selectedCategory === cat.value ? 'bg-white font-medium' : 'text-gray-700'}"
-							onclick={() => selectedCategory = cat.value}
-						>
-							{cat.display}
-						</button>
-					{/each}
+	<!-- Premium Category Filters -->
+	<div class="bg-gradient-to-r from-gray-50 via-white to-emerald-50 border-t border-gray-200/50">
+		<div class="mx-auto max-w-7xl px-6 py-6 lg:px-8">
+			<div class="flex flex-wrap items-center gap-4">
+				<div class="flex items-center gap-3">
+					<div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
+						<Filter class="w-4 h-4 text-white" />
+					</div>
+					<span class="text-sm font-bold text-gray-800">Browse by Collection:</span>
 				</div>
+				<button 
+					class="inline-flex items-center px-5 py-3 border-2 {selectedCategory === 'All' ? 'border-emerald-500 bg-emerald-50 text-emerald-700' : 'border-gray-200 bg-white hover:bg-gray-50 text-gray-700'} rounded-xl text-sm font-bold hover:shadow-lg transition-all duration-300"
+					onclick={() => selectedCategory = 'All'}
+				>
+					🎆 All Collections
+				</button>
+				{#each [
+					{display: 'Beautiful Sets', value: 'Mahjong Sets', emoji: '🎲'}, 
+					{display: 'Elegant Tables', value: 'Tables & Furniture', emoji: '🪑'}, 
+					{display: 'Smart Accessories', value: 'Accessories & Game Aids', emoji: '✨'}, 
+					{display: 'Lifestyle Pieces', value: 'Fashion & Lifestyle', emoji: '💎'}, 
+					{display: 'Learning Tools', value: 'Learning & Community', emoji: '📚'}, 
+					{display: 'Collector Items', value: 'Collectibles & Art', emoji: '🎨'}
+				] as cat}
+					<button 
+						class="inline-flex items-center px-5 py-3 border-2 {selectedCategory === cat.value ? 'border-emerald-500 bg-emerald-50 text-emerald-700' : 'border-gray-200 bg-white hover:bg-gray-50 text-gray-700'} rounded-xl text-sm font-bold hover:shadow-lg transition-all duration-300"
+						onclick={() => selectedCategory = cat.value}
+					>
+						{cat.emoji} {cat.display}
+					</button>
+				{/each}
 			</div>
 		</div>
 	</div>
 
-	<!-- Results Bar -->
-	<div class="mx-auto max-w-7xl px-6 lg:px-8 py-4">
-		<div class="flex items-center justify-between border-b border-gray-200 pb-4">
-			<div class="flex items-center space-x-4">
-				<p class="text-sm text-gray-600">
-					<span class="font-semibold text-gray-900">{filteredProducts.length} results</span>
-					{#if selectedCategory !== 'All'}for "{selectedCategory}"{/if}
+	<!-- Premium Results Bar -->
+	<div class="mx-auto max-w-7xl px-6 lg:px-8 py-6">
+		<div class="flex items-center justify-between bg-gradient-to-r from-white via-gray-50 to-white rounded-2xl p-6 border border-gray-200/50 shadow-sm">
+			<div class="flex items-center">
+				<div class="w-3 h-3 bg-emerald-500 rounded-full mr-3 animate-pulse"></div>
+				<p class="text-base font-medium text-gray-800">
+					<span class="font-bold text-emerald-600">{filteredProducts.length} beautiful pieces</span>
+					{#if selectedCategory !== 'All'}in {selectedCategory.replace('Mahjong ', '').replace('Tables & ', '').replace('Accessories & ', '').replace('Fashion & ', '').replace('Learning & ', '').replace('Collectibles & ', '')}{/if} waiting for you
 				</p>
 			</div>
-			<div class="flex items-center space-x-4">
+			<div class="flex items-center gap-4">
 				{#if cartItems > 0}
-					<div class="flex items-center space-x-2 bg-emerald-50 text-emerald-700 px-3 py-2 rounded-md">
-						<ShoppingCart class="h-4 w-4" />
-						<span class="text-sm font-medium">{cartItems} items in cart</span>
+					<div class="flex items-center bg-gradient-to-r from-emerald-50 to-green-50 border border-emerald-200 text-emerald-700 px-5 py-3 rounded-xl shadow-md">
+						<ShoppingCart class="h-4 w-4 mr-2" />
+						<span class="text-sm font-bold">{cartItems} in your collection</span>
 					</div>
 				{/if}
 				<select 
 					bind:value={sortBy}
-					class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-emerald-500 focus:border-emerald-500"
+					class="border-2 border-gray-200 bg-white rounded-xl px-4 py-3 text-sm font-medium focus:ring-emerald-500 focus:border-emerald-500 shadow-md hover:shadow-lg transition-all duration-300"
 				>
-					<option>Sort by Featured</option>
-					<option>Price: Low to High</option>
-					<option>Price: High to Low</option>
-					<option>Customer Rating</option>
-					<option>Newest Arrivals</option>
+					<option>Our Favorites</option>
+					<option>Price: Budget Friendly</option>
+					<option>Price: Investment Pieces</option>
+					<option>Most Loved</option>
+					<option>New Arrivals</option>
 				</select>
 			</div>
 		</div>
@@ -841,161 +874,234 @@
 	<!-- Products Grid - Amazon Style -->
 	<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
 		
-		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-			{#each paginatedProducts as product}
-				<div class="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer">
-					<!-- Product Image -->
-					<div class="aspect-square bg-gray-100 rounded-md mb-3 relative">
+		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			{#each paginatedProducts as product, index}
+				<div class="group bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer">
+					<!-- Premium Product Image -->
+					<div class="aspect-square bg-gradient-to-br {index % 4 === 0 ? 'from-emerald-100 to-green-200' : index % 4 === 1 ? 'from-amber-100 to-yellow-200' : index % 4 === 2 ? 'from-purple-100 to-indigo-200' : 'from-rose-100 to-pink-200'} relative overflow-hidden">
+						<!-- Premium badges -->
 						{#if product.originalPrice}
-							<div class="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">
-								-{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+							<div class="absolute top-4 left-4 bg-gradient-to-r from-red-500 to-pink-500 text-white px-3 py-2 rounded-xl text-xs font-bold shadow-lg">
+								✨ {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% off
 							</div>
 						{/if}
-						<div class="absolute bottom-2 right-2 bg-white rounded-full p-1 shadow-sm">
-							<button class="text-gray-400 hover:text-red-500">
-								<Heart class="w-4 h-4" />
+						{#if product.price > 100000}
+							<div class="absolute top-4 right-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-white px-3 py-2 rounded-xl text-xs font-bold shadow-lg">
+								🏆 Luxury
+							</div>
+						{:else if product.rating >= 4.8}
+							<div class="absolute top-4 right-4 bg-gradient-to-r from-emerald-400 to-green-500 text-white px-3 py-2 rounded-xl text-xs font-bold shadow-lg">
+								⭐ Loved
+							</div>
+						{/if}
+						<div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur rounded-full p-2 shadow-lg group-hover:scale-110 transition-transform">
+							<button class="text-gray-400 hover:text-red-500 transition-colors">
+								<Heart class="w-5 h-5" />
 							</button>
 						</div>
 					</div>
 
-					<!-- Product Info -->
-					<div class="space-y-2">
+					<!-- Premium Product Info -->
+					<div class="p-6 space-y-4">
 						<!-- Brand -->
-						<p class="text-xs text-emerald-600 font-medium">{product.brand}</p>
+						<div class="flex items-center justify-between">
+							<p class="text-xs text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded-lg">{product.brand}</p>
+							<div class="flex items-center bg-amber-50 px-2 py-1 rounded-lg">
+								<Star class="w-4 h-4 text-amber-500 fill-current mr-1" />
+								<span class="text-sm font-bold text-amber-700">{product.rating}</span>
+								<span class="text-xs text-amber-600 ml-1">({product.reviewCount})</span>
+							</div>
+						</div>
 						
 						<!-- Title -->
-						<h3 class="text-sm font-medium text-gray-900 line-clamp-2 hover:text-emerald-600">
+						<h3 class="text-base font-bold text-gray-900 leading-tight group-hover:text-emerald-600 transition-colors">
 							{product.name}
 						</h3>
 						
-						<!-- Rating -->
-						<div class="flex items-center space-x-1">
-							<div class="flex">
-								{#each Array(5) as _, i}
-									<Star class="w-3 h-3 {i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}" />
-								{/each}
-							</div>
-							<span class="text-xs text-gray-500">({product.reviewCount})</span>
-						</div>
-
-						<!-- Price -->
-						<div class="space-y-1">
-							{#if product.originalPrice}
-								<div class="flex items-center space-x-2">
-									<span class="text-lg font-bold text-gray-900">₹{product.price.toLocaleString('en-IN')}</span>
-									<span class="text-sm text-gray-500 line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
-								</div>
-							{:else}
-								<span class="text-lg font-bold text-gray-900">₹{product.price.toLocaleString('en-IN')}</span>
-							{/if}
-							
-							<!-- Prime badge for expensive items -->
-							{#if product.price > 50000}
-								<div class="flex items-center space-x-1">
-									<span class="text-xs text-emerald-600 font-bold">Premium</span>
-									<span class="text-xs text-gray-500">Free shipping</span>
-								</div>
+						<!-- Features Tags -->
+						<div class="flex flex-wrap gap-2">
+							{#each product.features.slice(0, 2) as feature, i}
+								<span class="inline-block bg-gradient-to-r {i === 0 ? 'from-emerald-50 to-green-50 text-emerald-700 border-emerald-200' : 'from-purple-50 to-indigo-50 text-purple-700 border-purple-200'} border text-xs px-3 py-1 rounded-lg font-medium">
+									{feature}
+								</span>
+							{/each}
+							{#if product.features.length > 2}
+								<span class="text-xs text-gray-500 font-medium">+{product.features.length - 2} more</span>
 							{/if}
 						</div>
 
-						<!-- Add to Cart Button -->
-						<button 
-							class="w-full bg-emerald-600 text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-emerald-700 transition-colors mt-2"
-							onclick={() => addToCart(product.id)}
-						>
-							Add to Cart
-						</button>
 						
-						<!-- Features -->
-						<div class="mt-2">
-							<div class="flex flex-wrap gap-1">
-								{#each product.features.slice(0, 2) as feature}
-									<span class="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
-										{feature}
-									</span>
-								{/each}
-								{#if product.features.length > 2}
-									<span class="text-xs text-gray-500">+{product.features.length - 2} more</span>
+						<!-- Premium Pricing Section -->
+						<div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-4">
+							<div class="flex items-center justify-between mb-3">
+								<div>
+									{#if product.originalPrice}
+										<div class="flex items-baseline space-x-2">
+											<span class="text-xl font-bold text-gray-900">₹{product.price.toLocaleString('en-IN')}</span>
+											<span class="text-sm text-gray-500 line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+										</div>
+									{:else}
+										<span class="text-xl font-bold text-gray-900">₹{product.price.toLocaleString('en-IN')}</span>
+									{/if}
+									<div class="text-xs text-gray-600 font-medium">Buy direct from artisan</div>
+								</div>
+								{#if product.price > 50000}
+									<div class="bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-200 px-3 py-2 rounded-xl text-xs font-bold text-amber-800">
+										🚚 Free shipping
+									</div>
 								{/if}
 							</div>
+
+							<!-- Premium CTA Button -->
+							<button 
+								class="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white px-4 py-2.5 rounded-lg text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200"
+								onclick={() => addToCart(product.id)}
+							>
+								🛍️ Add to Collection
+							</button>
 						</div>
 					</div>
 				</div>
 			{/each}
 		</div>
 
-		<!-- Pagination -->
+		<!-- Premium Pagination -->
 		{#if totalPages > 1 && filteredProducts.length > 0}
-			<div class="flex items-center justify-center mt-12 space-x-2">
-				<!-- Previous Button -->
-				<button 
-					onclick={() => currentPage = Math.max(1, currentPage - 1)}
-					disabled={currentPage === 1}
-					class="inline-flex items-center rounded-lg bg-white border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-				>
-					Previous
-				</button>
-				
-				<!-- Page Numbers -->
-				{#each Array.from({length: Math.min(5, totalPages)}, (_, i) => {
-					let start = Math.max(1, currentPage - 2);
-					let end = Math.min(totalPages, start + 4);
-					start = Math.max(1, end - 4);
-					return start + i;
-				}) as page}
-					{#if page <= totalPages}
-						<button 
-							onclick={() => currentPage = page}
-							class="inline-flex items-center rounded-lg px-4 py-2 text-sm font-medium transition-colors {
-								currentPage === page 
-									? 'bg-emerald-600 text-white' 
-									: 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
-							}"
-						>
-							{page}
-						</button>
-					{/if}
-				{/each}
-				
-				<!-- Next Button -->
-				<button 
-					onclick={() => currentPage = Math.min(totalPages, currentPage + 1)}
-					disabled={currentPage === totalPages}
-					class="inline-flex items-center rounded-lg bg-white border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-				>
-					Next
-				</button>
+			<div class="text-center mt-16">
+				<div class="inline-flex items-center bg-white/80 backdrop-blur-sm border border-white/50 rounded-2xl shadow-2xl p-2">
+					<!-- Previous Button -->
+					<button 
+						onclick={() => currentPage = Math.max(1, currentPage - 1)}
+						disabled={currentPage === 1}
+						class="px-6 py-3 text-sm font-bold text-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 rounded-xl shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+					>
+						← Previous
+					</button>
+					
+					<!-- Page Numbers -->
+					{#each Array.from({length: Math.min(5, totalPages)}, (_, i) => {
+						let start = Math.max(1, currentPage - 2);
+						let end = Math.min(totalPages, start + 4);
+						start = Math.max(1, end - 4);
+						return start + i;
+					}) as page}
+						{#if page <= totalPages}
+							<button 
+								onclick={() => currentPage = page}
+								class="px-4 py-3 text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 {
+									currentPage === page 
+										? 'bg-gradient-to-r from-emerald-600 to-green-600 text-white' 
+										: 'bg-gradient-to-r from-gray-50 to-gray-100 text-gray-700 hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600'
+								}"
+							>
+								{page}
+							</button>
+						{/if}
+					{/each}
+					
+					<!-- Next Button -->
+					<button 
+						onclick={() => currentPage = Math.min(totalPages, currentPage + 1)}
+						disabled={currentPage === totalPages}
+						class="px-6 py-3 text-sm font-bold text-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 rounded-xl shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+					>
+						Next →
+					</button>
+				</div>
 			</div>
 		{/if}
 		
 		{#if filteredProducts.length === 0}
-			<div class="text-center py-12">
-				<div class="w-24 h-24 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-					<Search class="w-8 h-8 text-gray-400" />
+			<div class="text-center py-16">
+				<div class="w-28 h-28 mx-auto mb-6 bg-gradient-to-br from-emerald-100 to-green-200 rounded-3xl flex items-center justify-center">
+					<div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center">
+						<Search class="w-8 h-8 text-white" />
+					</div>
 				</div>
-				<h3 class="text-lg font-medium text-gray-900 mb-2">No products found</h3>
-				<p class="text-gray-600">Try adjusting your search or filters to find what you're looking for.</p>
+				<h3 class="text-2xl font-bold text-gray-900 mb-4">Looking for something specific?</h3>
+				<p class="text-lg text-gray-600 mb-6">Our artisans are always creating new pieces. Try adjusting your search or check back soon!</p>
+				<button 
+					class="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white px-8 py-4 rounded-xl text-sm font-bold shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105"
+					onclick={() => { selectedCategory = 'All'; searchQuery = ''; }}
+				>
+					🔎 Browse All Collections
+				</button>
 			</div>
 		{/if}
 	</div>
 
-	<!-- CTA Section -->
-	<div class="bg-emerald-50">
-		<div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
-			<div class="mx-auto max-w-2xl text-center">
-				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-					Sell Your Products
-				</h2>
-				<p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">
-					Are you a Mahjong product manufacturer or retailer? Join our marketplace and reach passionate players across India.
-				</p>
-				<div class="mt-10">
-					<a
-						href="/vendor/apply"
-						class="rounded-md bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500"
-					>
-						Become a Vendor
-					</a>
+	<!-- Premium CTA Section -->
+	<div class="bg-gradient-to-br from-emerald-600 via-green-600 to-emerald-700 py-20 sm:py-28 relative overflow-hidden">
+		<!-- Background Pattern -->
+		<div class="absolute inset-0 bg-grid-white/[0.05] bg-[size:30px_30px]" aria-hidden="true"></div>
+		<div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="relative isolate overflow-hidden bg-white/5 backdrop-blur-sm px-8 py-24 sm:rounded-3xl sm:px-12 sm:py-32 md:px-16 lg:px-20 border border-white/10 shadow-2xl">
+				<div class="mx-auto max-w-2xl text-center">
+					<div class="inline-flex items-center rounded-full bg-white/20 border border-white/30 px-6 py-3 text-sm font-medium text-white mb-8 shadow-lg backdrop-blur-sm">
+						<div class="w-2 h-2 bg-white rounded-full mr-3 animate-pulse"></div>
+						Join Our Artisan Community
+					</div>
+					<h2 class="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6 leading-tight">
+						Share Your Beautiful <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-200 to-amber-300">Creations</span>
+					</h2>
+					<p class="text-xl leading-8 text-emerald-100 mb-12">
+						Are you a talented artisan or maker? Join our marketplace and connect with 
+						Mahjong enthusiasts who appreciate quality craftsmanship.
+					</p>
+
+					<!-- Premium Benefits -->
+					<div class="grid gap-8 sm:grid-cols-3 mb-12">
+						<div class="text-center group">
+							<div class="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+								<ShoppingCart class="w-8 h-8 text-white" />
+							</div>
+							<h4 class="text-lg font-bold text-white mb-3">Passionate Buyers</h4>
+							<p class="text-emerald-100 leading-relaxed">Connect with customers who<br/>truly value your craft</p>
+						</div>
+						
+						<div class="text-center group">
+							<div class="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+								<Star class="w-8 h-8 text-white" />
+							</div>
+							<h4 class="text-lg font-bold text-white mb-3">Fair Pricing</h4>
+							<p class="text-emerald-100 leading-relaxed">Set your own prices and<br/>keep what you deserve</p>
+						</div>
+						
+						<div class="text-center group">
+							<div class="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+								<Heart class="w-8 h-8 text-white" />
+							</div>
+							<h4 class="text-lg font-bold text-white mb-3">Community Support</h4>
+							<p class="text-emerald-100 leading-relaxed">Join a community that<br/>celebrates your artistry</p>
+						</div>
+					</div>
+
+					<div class="flex flex-col sm:flex-row gap-6 items-center justify-center">
+						<a
+							href="/vendor/apply"
+							class="w-full sm:w-auto group inline-flex items-center justify-center bg-white px-10 py-5 rounded-2xl text-lg font-bold text-emerald-600 shadow-2xl hover:shadow-white/25 transition-all duration-300 transform hover:scale-105 border-4 border-white/20"
+						>
+							<div class="w-6 h-6 bg-emerald-600 rounded-lg flex items-center justify-center mr-3 group-hover:bg-emerald-500 transition-colors">
+								<ShoppingCart class="w-4 h-4 text-white" />
+							</div>
+							Join as Artisan
+						</a>
+						
+						<div class="bg-white/10 backdrop-blur border border-white/20 rounded-2xl px-6 py-3">
+							<div class="text-white text-sm font-medium text-center">
+								<span class="text-emerald-200">🎆</span> No setup fees
+								<span class="mx-3 text-white/40">•</span>
+								<span class="text-emerald-200">💝</span> Full support
+								<span class="mx-3 text-white/40">•</span>
+								<span class="text-emerald-200">🌟</span> Fair terms
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Background decoration -->
+				<div class="absolute -top-24 right-0 -z-10 transform-gpu blur-3xl" aria-hidden="true">
+					<div class="aspect-[1404/767] w-[87.75rem] bg-gradient-to-r from-emerald-400 to-green-600 opacity-25" style="clip-path: polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"></div>
 				</div>
 			</div>
 		</div>

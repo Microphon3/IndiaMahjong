@@ -77,81 +77,81 @@
 </script>
 
 <svelte:head>
-	<title>Join the India Mahjong Community</title>
-	<meta name="description" content="Connect with passionate Mahjong players across India. Join our community for games, events, and learning opportunities." />
+	<title>Join Our Family - India Mahjong</title>
+	<meta name="description" content="Connect with wonderful Mahjong players across India. Simple onboarding to join our warm community." />
 </svelte:head>
 
-<div class="bg-white min-h-screen">
+<div class="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50 relative">
+	<div class="absolute inset-0 bg-grid-gray-900/[0.04] bg-[size:20px_20px]" aria-hidden="true"></div>
 	{#if !isSubmitted}
 		<!-- Header -->
-		<div class="bg-gradient-to-br from-emerald-50 to-green-50">
+		<div class="relative bg-white/80 backdrop-blur-sm border-b border-emerald-200/50">
 			<div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
 				<div class="mx-auto max-w-2xl text-center">
 					<div class="flex justify-center mb-6">
-						<div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-700 rounded-full flex items-center justify-center">
-							<Users class="w-8 h-8 text-white" />
+						<div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-700 rounded-2xl flex items-center justify-center shadow-2xl">
+							<span class="text-white font-bold text-2xl">麻</span>
 						</div>
 					</div>
 					<h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-						Join the India Mahjong Community
+						Join Our Family
 					</h1>
 					<p class="mt-6 text-lg leading-8 text-gray-600">
-						Connect with passionate Mahjong players across India. Get access to exclusive events, 
-						learning resources, tournaments, and a vibrant community of fellow enthusiasts.
+						Connect with wonderful players across India
 					</p>
 				</div>
 			</div>
 		</div>
 
 		<!-- Benefits Section -->
-		<div class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+		<div class="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center mb-12">
 				<h2 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-					What You'll Get
+					What's Included
 				</h2>
 			</div>
 			
-			<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-				<div class="text-center">
+			<div class="grid gap-8 sm:grid-cols-3">
+				<div class="text-center bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all">
 					<div class="flex justify-center mb-4">
-						<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-							<MessageCircle class="w-6 h-6 text-blue-600" />
+						<div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center">
+							<MessageCircle class="w-6 h-6 text-white" />
 						</div>
 					</div>
-					<h3 class="text-lg font-semibold text-gray-900 mb-2">WhatsApp Community</h3>
-					<p class="text-gray-600 text-sm">Join our active WhatsApp group with 500+ members for daily discussions, game arrangements, and tips.</p>
+					<h3 class="text-lg font-semibold text-gray-900 mb-2">Daily Chat</h3>
+					<p class="text-gray-600 text-sm">WhatsApp group with 500+ friendly players</p>
 				</div>
 				
-				<div class="text-center">
+				<div class="text-center bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all">
 					<div class="flex justify-center mb-4">
-						<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-							<Calendar class="w-6 h-6 text-purple-600" />
+						<div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
+							<Calendar class="w-6 h-6 text-white" />
 						</div>
 					</div>
-					<h3 class="text-lg font-semibold text-gray-900 mb-2">Exclusive Events</h3>
-					<p class="text-gray-600 text-sm">First access to tournaments, workshops, social meetups, and special events across India.</p>
+					<h3 class="text-lg font-semibold text-gray-900 mb-2">Events</h3>
+					<p class="text-gray-600 text-sm">First access to meetups and celebrations</p>
 				</div>
 				
-				<div class="text-center">
+				<div class="text-center bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all">
 					<div class="flex justify-center mb-4">
-						<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-							<Mail class="w-6 h-6 text-green-600" />
+						<div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center">
+							<Mail class="w-6 h-6 text-white" />
 						</div>
 					</div>
-					<h3 class="text-lg font-semibold text-gray-900 mb-2">Weekly Newsletter</h3>
-					<p class="text-gray-600 text-sm">Tips, strategies, event announcements, and community highlights delivered to your inbox.</p>
+					<h3 class="text-lg font-semibold text-gray-900 mb-2">Updates</h3>
+					<p class="text-gray-600 text-sm">Weekly highlights in your inbox</p>
 				</div>
 			</div>
 		</div>
 
 		<!-- Form Section -->
-		<div class="bg-gray-50">
+		<div class="relative">
 			<div class="mx-auto max-w-3xl px-6 py-16 sm:py-24 lg:px-8">
-				<form on:submit|preventDefault={handleSubmit} class="bg-white shadow-sm ring-1 ring-gray-200 rounded-lg p-8">
+				<form on:submit|preventDefault={handleSubmit} class="bg-white/90 backdrop-blur-sm border border-white/50 shadow-2xl rounded-3xl p-8">
 					<div class="space-y-6">
 						<!-- Basic Info -->
 						<div>
-							<h3 class="text-lg font-semibold text-gray-900 mb-4">Tell us about yourself</h3>
+							<h3 class="text-lg font-semibold text-gray-900 mb-4">About You</h3>
 							
 							<div class="grid gap-6 sm:grid-cols-2">
 								<div>
@@ -205,7 +205,7 @@
 
 						<!-- Mahjong Experience -->
 						<div>
-							<h3 class="text-lg font-semibold text-gray-900 mb-4">Your Mahjong Experience</h3>
+							<h3 class="text-lg font-semibold text-gray-900 mb-4">Experience Level</h3>
 							
 							<div class="space-y-4">
 								<div>
@@ -241,7 +241,7 @@
 
 						<!-- Interests -->
 						<div>
-							<h3 class="text-lg font-semibold text-gray-900 mb-2">What interests you most?</h3>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Interests</h3>
 							<p class="text-sm text-gray-600 mb-4">Select all that apply</p>
 							
 							<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -275,14 +275,14 @@
 							<button
 								type="submit"
 								disabled={!isFormValid || isSubmitting}
-								class="w-full flex justify-center items-center rounded-md bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed"
+								class="w-full flex justify-center items-center bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 px-6 py-4 rounded-2xl text-base font-bold text-white shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
 							>
 								{#if isSubmitting}
 									<div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-									Joining Community...
+									Joining...
 								{:else}
 									<Users class="w-5 h-5 mr-2" />
-									Join the Community
+									Join Our Family
 								{/if}
 							</button>
 						</div>
@@ -298,10 +298,10 @@
 					<CheckCircle class="w-8 h-8 text-green-600" />
 				</div>
 				
-				<h2 class="text-2xl font-bold text-gray-900 mb-4">Welcome to the Community!</h2>
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Welcome to Our Family!</h2>
 				
 				<p class="text-gray-600 mb-6">
-					Thank you for joining, <strong>{formData.name}</strong>! We're excited to have you as part of the India Mahjong community.
+					Thank you for joining, <strong>{formData.name}</strong>! We're delighted to have you.
 				</p>
 				
 				<div class="space-y-4">
