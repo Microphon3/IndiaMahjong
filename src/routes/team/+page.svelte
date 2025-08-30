@@ -1,6 +1,83 @@
 <script lang="ts">
 	import { Users, MapPin, Award, BookOpen, Handshake, Briefcase, Scale, Megaphone } from 'lucide-svelte';
 
+	// Team member illustration function
+	const getMemberIllustration = (role: string, sectionColor: string) => {
+		const roles = {
+			'rules': { tiles: ['一', '二', '三'], bg: 'emerald' },
+			'taiwanese': { tiles: ['🀑', '🀒', '🀓'], bg: 'emerald' }, 
+			'hk': { tiles: ['🀇', '🀈', '🀉'], bg: 'emerald' },
+			'community': { tiles: ['🀀', '🀁', '🀂'], bg: 'blue' },
+			'engagement': { tiles: ['🀃', '🀄', '🀅'], bg: 'blue' },
+			'partnerships': { tiles: ['🀆', '🀇', '🀈'], bg: 'purple' },
+			'events': { tiles: ['🀉', '🀊', '🀋'], bg: 'purple' },
+			'operations': { tiles: ['🀌', '🀍', '🀎'], bg: 'indigo' },
+			'legal': { tiles: ['🀏', '🀐', '🀑'], bg: 'red' },
+			'pr': { tiles: ['🀒', '🀓', '🀔'], bg: 'green' }
+		};
+
+		let tileSet = roles.rules.tiles; // default
+		if (role.includes('Taiwanese')) tileSet = roles.taiwanese.tiles;
+		else if (role.includes('HK')) tileSet = roles.hk.tiles;
+		else if (role.includes('Community')) tileSet = roles.community.tiles;
+		else if (role.includes('Engagement')) tileSet = roles.engagement.tiles;
+		else if (role.includes('Partnership')) tileSet = roles.partnerships.tiles;
+		else if (role.includes('Events') || role.includes('Media')) tileSet = roles.events.tiles;
+		else if (role.includes('Operations')) tileSet = roles.operations.tiles;
+		else if (role.includes('Legal')) tileSet = roles.legal.tiles;
+		else if (role.includes('PR') || role.includes('Communications')) tileSet = roles.pr.tiles;
+
+		const colorMap = {
+			'emerald': { bg: '#10B981', text: '#059669', light: '#D1FAE5' },
+			'blue': { bg: '#3B82F6', text: '#1D4ED8', light: '#DBEAFE' },
+			'purple': { bg: '#8B5CF6', text: '#7C3AED', light: '#EDE9FE' },
+			'indigo': { bg: '#6366F1', text: '#4F46E5', light: '#E0E7FF' },
+			'red': { bg: '#EF4444', text: '#DC2626', light: '#FEE2E2' },
+			'green': { bg: '#22C55E', text: '#16A34A', light: '#DCFCE7' }
+		};
+
+		const colors = colorMap[sectionColor] || colorMap['emerald'];
+
+		return `
+			<svg viewBox="0 0 200 200" class="w-full h-full">
+				<defs>
+					<linearGradient id="bg-${sectionColor}" x1="0%" y1="0%" x2="100%" y2="100%">
+						<stop offset="0%" style="stop-color:${colors.light};stop-opacity:1" />
+						<stop offset="100%" style="stop-color:#F9FAFB;stop-opacity:1" />
+					</linearGradient>
+				</defs>
+				<rect width="200" height="200" fill="url(#bg-${sectionColor})" rx="8"/>
+				
+				<!-- Central arrangement of 3 tiles -->
+				<g transform="translate(100, 100)">
+					<!-- Tile 1 -->
+					<g transform="translate(-35, -25) rotate(-15)">
+						<rect width="24" height="32" fill="white" stroke="${colors.bg}" stroke-width="1.5" rx="3" opacity="0.95"/>
+						<text x="12" y="22" font-family="serif" font-size="14" text-anchor="middle" fill="${colors.text}" font-weight="bold">${tileSet[0]}</text>
+					</g>
+					
+					<!-- Tile 2 (center, slightly forward) -->
+					<g transform="translate(0, -15) rotate(5)">
+						<rect width="24" height="32" fill="white" stroke="${colors.bg}" stroke-width="1.5" rx="3"/>
+						<text x="12" y="22" font-family="serif" font-size="14" text-anchor="middle" fill="${colors.text}" font-weight="bold">${tileSet[1]}</text>
+					</g>
+					
+					<!-- Tile 3 -->
+					<g transform="translate(35, -25) rotate(15)">
+						<rect width="24" height="32" fill="white" stroke="${colors.bg}" stroke-width="1.5" rx="3" opacity="0.95"/>
+						<text x="12" y="22" font-family="serif" font-size="14" text-anchor="middle" fill="${colors.text}" font-weight="bold">${tileSet[2]}</text>
+					</g>
+					
+					<!-- Subtle decorative dots -->
+					<circle cx="-60" cy="40" r="2" fill="${colors.bg}" opacity="0.3"/>
+					<circle cx="60" cy="35" r="2" fill="${colors.bg}" opacity="0.3"/>
+					<circle cx="-50" cy="-50" r="1.5" fill="${colors.bg}" opacity="0.4"/>
+					<circle cx="55" cy="-45" r="1.5" fill="${colors.bg}" opacity="0.4"/>
+				</g>
+			</svg>
+		`;
+	};
+
 	const experts = [
 		{
 			name: 'Dr. Meera Vaidyanathan',
@@ -158,7 +235,9 @@
 		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
 			{#each experts as expert}
 				<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6">
-					<div class="aspect-square bg-gray-100 rounded-lg mb-4"></div>
+					<div class="aspect-square rounded-lg mb-4">
+						{@html getMemberIllustration(expert.role, 'emerald')}
+					</div>
 					<div class="text-center">
 						<h3 class="text-lg font-semibold text-gray-900 mb-1">{expert.name}</h3>
 						<p class="text-emerald-600 font-medium mb-3">{expert.role}</p>
@@ -205,7 +284,9 @@
 			<div class="grid gap-8 sm:grid-cols-1 lg:grid-cols-2 max-w-4xl mx-auto">
 				{#each community as member}
 					<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6">
-						<div class="aspect-square bg-gray-100 rounded-lg mb-4"></div>
+						<div class="aspect-square rounded-lg mb-4">
+							{@html getMemberIllustration(member.role, 'blue')}
+						</div>
 						<div class="text-center">
 							<h3 class="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>
 							<p class="text-blue-600 font-medium mb-3">{member.role}</p>
@@ -252,7 +333,9 @@
 		<div class="grid gap-8 sm:grid-cols-1 lg:grid-cols-2 max-w-4xl mx-auto">
 			{#each partnerships as partner}
 				<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6">
-					<div class="aspect-square bg-gray-100 rounded-lg mb-4"></div>
+					<div class="aspect-square rounded-lg mb-4">
+						{@html getMemberIllustration(partner.role, 'purple')}
+					</div>
 					<div class="text-center">
 						<h3 class="text-lg font-semibold text-gray-900 mb-1">{partner.name}</h3>
 						<p class="text-purple-600 font-medium mb-3">{partner.role}</p>
@@ -299,7 +382,9 @@
 			<div class="flex justify-center">
 				{#each operations as member}
 					<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6 max-w-sm">
-						<div class="aspect-square bg-gray-100 rounded-lg mb-4"></div>
+						<div class="aspect-square rounded-lg mb-4">
+							{@html getMemberIllustration(member.role, 'indigo')}
+						</div>
 						<div class="text-center">
 							<h3 class="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>
 							<p class="text-indigo-600 font-medium mb-3">{member.role}</p>
@@ -346,7 +431,9 @@
 		<div class="flex justify-center">
 			{#each legal as member}
 				<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6 max-w-sm">
-					<div class="aspect-square bg-gray-100 rounded-lg mb-4"></div>
+					<div class="aspect-square rounded-lg mb-4">
+						{@html getMemberIllustration(member.role, 'red')}
+					</div>
 					<div class="text-center">
 						<h3 class="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>
 						<p class="text-red-600 font-medium mb-3">{member.role}</p>
@@ -393,7 +480,9 @@
 			<div class="flex justify-center">
 				{#each pr as member}
 					<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6 max-w-sm">
-						<div class="aspect-square bg-gray-100 rounded-lg mb-4"></div>
+						<div class="aspect-square rounded-lg mb-4">
+							{@html getMemberIllustration(member.role, 'green')}
+						</div>
 						<div class="text-center">
 							<h3 class="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>
 							<p class="text-green-600 font-medium mb-3">{member.role}</p>

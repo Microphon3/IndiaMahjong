@@ -3,6 +3,8 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import NavigationSimple from '$lib/components/NavigationSimple.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import MockSitePopup from '$lib/components/MockSitePopup.svelte';
+	import MockSiteBadge from '$lib/components/MockSiteBadge.svelte';
 
 	let { children } = $props();
 </script>
@@ -22,4 +24,10 @@
 	</main>
 	
 	<Footer />
+	
+	<!-- Mock site popup -->
+	<MockSitePopup />
+	
+	<!-- Mock site badge -->
+	<MockSiteBadge />
 </div>

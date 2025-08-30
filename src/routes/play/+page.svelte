@@ -389,23 +389,23 @@
 						</div>
 					</div>
 					
-					<div class="flex flex-col sm:flex-row gap-6 items-center justify-center">
+					<div class="flex flex-col items-center justify-center gap-6">
 						<a
 							href="/venue/register"
-							class="w-full sm:w-auto group inline-flex items-center justify-center bg-white px-10 py-5 rounded-2xl text-lg font-bold text-emerald-600 shadow-2xl hover:shadow-white/25 transition-all duration-300 transform hover:scale-105 border-4 border-white/20"
+							class="group inline-flex items-center justify-center bg-white/95 backdrop-blur-sm px-8 py-3.5 rounded-xl text-base font-semibold text-emerald-700 hover:bg-white transition-all duration-200 hover:shadow-lg border border-white/50"
 						>
-							<div class="w-6 h-6 bg-emerald-600 rounded-lg flex items-center justify-center mr-3 group-hover:bg-emerald-500 transition-colors">
-								<Home class="w-4 h-4 text-white" />
+							<div class="w-5 h-5 bg-emerald-600 rounded-md flex items-center justify-center mr-3 group-hover:bg-emerald-500 transition-colors">
+								<Home class="w-3 h-3 text-white" />
 							</div>
 							Become a Host
 						</a>
 						
-						<div class="bg-white/10 backdrop-blur border border-white/20 rounded-2xl px-6 py-3">
+						<div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl px-5 py-2.5">
 							<div class="text-white text-sm font-medium text-center">
 								<span class="text-emerald-200">🎯</span> No listing fees
-								<span class="mx-3 text-white/40">•</span>
+								<span class="mx-2 text-white/40">•</span>
 								<span class="text-emerald-200">💝</span> Full support
-								<span class="mx-3 text-white/40">•</span>
+								<span class="mx-2 text-white/40">•</span>
 								<span class="text-emerald-200">🌟</span> Join 100+ hosts
 							</div>
 						</div>

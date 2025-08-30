@@ -6,7 +6,7 @@
 	let messages = $state([
 		{
 			id: 1,
-			text: "Namaste! I'm Ms. Flower, India's mahjong expert. Ask me anything about mahjong - rules, venues, strategy, or our premium community experiences!",
+			text: "Namaste! I'm Ms. Flower, your virtual mahjong guide. This is a mock website showcasing our vision for India's premier mahjong community. Ask me anything about mahjong - rules, venues, strategy, or our planned experiences!",
 			sender: 'bot',
 			timestamp: new Date()
 		}
