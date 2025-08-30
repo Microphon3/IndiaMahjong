@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Users, MapPin, Award, BookOpen, Handshake, ShoppingBag } from 'lucide-svelte';
+	import { Users, MapPin, Award, BookOpen, Handshake, Briefcase, Scale, Megaphone } from 'lucide-svelte';
 
 	const experts = [
 		{
@@ -31,26 +31,6 @@
 			strength: 'Cultural authenticity, global exposure',
 			knownFor: 'bridging Mumbai clubs with HK expat rules',
 			image: '/api/placeholder/300/300'
-		},
-		{
-			name: 'Sneha Mukherjee',
-			role: 'Riichi Specialist',
-			location: 'Powai',
-			experience: '3 yrs playing',
-			prefers: 'Riichi (Japanese)',
-			strength: 'Engaging explainer, ties Mahjong into anime/Japan culture',
-			knownFor: 'teaching Riichi lingo & scoring in Hinglish',
-			image: '/api/placeholder/300/300'
-		},
-		{
-			name: 'Kavitha Raghavan',
-			role: 'Indian Mahjong Specialist',
-			location: 'Matunga',
-			experience: '4 yrs playing',
-			prefers: 'Indian / Local rules',
-			strength: 'Family-club heritage, South Indian influence',
-			knownFor: 'codifying her circle\'s rules into sharable guides',
-			image: '/api/placeholder/300/300'
 		}
 	];
 
@@ -63,6 +43,16 @@
 			prefers: 'Mixed play (rotates between all styles)',
 			strength: 'Grassroots builder, inclusive host',
 			knownFor: 'hosting the friendliest weekly Mahjong nights in Andheri',
+			image: '/api/placeholder/300/300'
+		},
+		{
+			name: 'Rohan Mehta',
+			role: 'Community Engagement Manager',
+			location: 'Worli',
+			experience: '2 yrs playing',
+			prefers: 'Riichi & Taiwanese mix',
+			strength: 'Social media, youth outreach, tournament organizing',
+			knownFor: 'bringing Gen-Z energy to traditional Mahjong circles',
 			image: '/api/placeholder/300/300'
 		}
 	];
@@ -90,25 +80,41 @@
 		}
 	];
 
-	const marketplace = [
+	const operations = [
 		{
-			name: 'Rajiv Khanna',
-			role: 'Head of Marketplace',
-			location: 'Colaba',
-			experience: '5 yrs playing',
-			prefers: 'HK style',
-			strength: 'Sourcing, logistics, quality control',
-			knownFor: 'owning one of Mumbai\'s most diverse Mahjong set collections',
+			name: 'Vikram Singh',
+			role: 'Head of Operations',
+			location: 'BKC',
+			experience: '4 yrs playing',
+			prefers: 'Taiwanese & HK mix',
+			strength: 'Process optimization, logistics, quality assurance',
+			knownFor: 'streamlining event operations and venue coordination',
 			image: '/api/placeholder/300/300'
-		},
+		}
+	];
+
+	const legal = [
 		{
-			name: 'Shreya Iyer',
-			role: 'Product & Seller Manager',
-			location: 'Chembur',
+			name: 'Priya Sharma',
+			role: 'Legal Counsel',
+			location: 'Fort',
+			experience: '2 yrs playing',
+			prefers: 'Indian style',
+			strength: 'Regulatory compliance, contract negotiation, risk management',
+			knownFor: 'ensuring all tournaments meet legal gaming standards',
+			image: '/api/placeholder/300/300'
+		}
+	];
+
+	const pr = [
+		{
+			name: 'Arjun Nair',
+			role: 'PR & Communications',
+			location: 'Linking Road',
 			experience: '3 yrs playing',
-			prefers: 'Indian ruleset',
-			strength: 'Curation + product storytelling',
-			knownFor: 'spotting artisanal tables and niche accessories',
+			prefers: 'Riichi style',
+			strength: 'Media relations, brand storytelling, crisis communication',
+			knownFor: 'getting Mahjong featured in mainstream lifestyle publications',
 			image: '/api/placeholder/300/300'
 		}
 	];
@@ -143,7 +149,7 @@
 					<Award class="w-6 h-6 text-emerald-600" />
 				</div>
 			</div>
-			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Patient Teachers</h2>
+			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Led by Teachers</h2>
 			<p class="mt-4 text-lg leading-8 text-gray-600">
 				Experienced players who make learning enjoyable and accessible
 			</p>
@@ -196,9 +202,9 @@
 				</p>
 			</div>
 
-			<div class="flex justify-center">
+			<div class="grid gap-8 sm:grid-cols-1 lg:grid-cols-2 max-w-4xl mx-auto">
 				{#each community as member}
-					<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6 max-w-sm">
+					<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6">
 						<div class="aspect-square bg-gray-100 rounded-lg mb-4"></div>
 						<div class="text-center">
 							<h3 class="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>
@@ -275,28 +281,122 @@
 		</div>
 	</div>
 
-	<!-- Marketplace Section -->
+	<!-- Operations Section -->
 	<div class="bg-gray-50">
 		<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center mb-16">
 				<div class="flex justify-center mb-4">
-					<div class="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg">
-						<ShoppingBag class="w-6 h-6 text-orange-600" />
+					<div class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-lg">
+						<Briefcase class="w-6 h-6 text-indigo-600" />
 					</div>
 				</div>
-				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Product Curators</h2>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Operations</h2>
 				<p class="mt-4 text-lg leading-8 text-gray-600">
-					Sourcing quality sets and accessories
+					Streamlining processes and ensuring seamless experiences
 				</p>
 			</div>
 
-			<div class="grid gap-8 sm:grid-cols-1 lg:grid-cols-2 max-w-4xl mx-auto">
-				{#each marketplace as member}
-					<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6">
+			<div class="flex justify-center">
+				{#each operations as member}
+					<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6 max-w-sm">
 						<div class="aspect-square bg-gray-100 rounded-lg mb-4"></div>
 						<div class="text-center">
 							<h3 class="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>
-							<p class="text-orange-600 font-medium mb-3">{member.role}</p>
+							<p class="text-indigo-600 font-medium mb-3">{member.role}</p>
+							
+							<div class="space-y-2 text-sm text-gray-600 mb-4">
+								<div class="flex items-center justify-center">
+									<MapPin class="w-4 h-4 mr-2" />
+									{member.location} • {member.experience}
+								</div>
+								<div class="text-gray-500">Prefers: <span class="font-medium text-gray-700">{member.prefers}</span></div>
+							</div>
+							
+							<div class="text-sm text-left space-y-2">
+								<div>
+									<span class="font-medium text-gray-700">Strength:</span>
+									<p class="text-gray-600">{member.strength}</p>
+								</div>
+								<div>
+									<span class="font-medium text-gray-700">Known for:</span>
+									<p class="text-gray-600">{member.knownFor}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</div>
+
+	<!-- Legal Section -->
+	<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+		<div class="mx-auto max-w-2xl text-center mb-16">
+			<div class="flex justify-center mb-4">
+				<div class="flex items-center justify-center w-12 h-12 bg-red-100 rounded-lg">
+					<Scale class="w-6 h-6 text-red-600" />
+				</div>
+			</div>
+			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Legal</h2>
+			<p class="mt-4 text-lg leading-8 text-gray-600">
+				Ensuring compliance and protecting our community
+			</p>
+		</div>
+
+		<div class="flex justify-center">
+			{#each legal as member}
+				<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6 max-w-sm">
+					<div class="aspect-square bg-gray-100 rounded-lg mb-4"></div>
+					<div class="text-center">
+						<h3 class="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>
+						<p class="text-red-600 font-medium mb-3">{member.role}</p>
+						
+						<div class="space-y-2 text-sm text-gray-600 mb-4">
+							<div class="flex items-center justify-center">
+								<MapPin class="w-4 h-4 mr-2" />
+								{member.location} • {member.experience}
+							</div>
+							<div class="text-gray-500">Prefers: <span class="font-medium text-gray-700">{member.prefers}</span></div>
+						</div>
+						
+						<div class="text-sm text-left space-y-2">
+							<div>
+								<span class="font-medium text-gray-700">Strength:</span>
+								<p class="text-gray-600">{member.strength}</p>
+							</div>
+							<div>
+								<span class="font-medium text-gray-700">Known for:</span>
+								<p class="text-gray-600">{member.knownFor}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
+
+	<!-- PR Section -->
+	<div class="bg-gray-50">
+		<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+			<div class="mx-auto max-w-2xl text-center mb-16">
+				<div class="flex justify-center mb-4">
+					<div class="flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg">
+						<Megaphone class="w-6 h-6 text-green-600" />
+					</div>
+				</div>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">PR & Communications</h2>
+				<p class="mt-4 text-lg leading-8 text-gray-600">
+					Telling our story and building brand awareness
+				</p>
+			</div>
+
+			<div class="flex justify-center">
+				{#each pr as member}
+					<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6 max-w-sm">
+						<div class="aspect-square bg-gray-100 rounded-lg mb-4"></div>
+						<div class="text-center">
+							<h3 class="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>
+							<p class="text-green-600 font-medium mb-3">{member.role}</p>
 							
 							<div class="space-y-2 text-sm text-gray-600 mb-4">
 								<div class="flex items-center justify-center">

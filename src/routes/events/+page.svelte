@@ -200,6 +200,141 @@
 		// In a real app, this would integrate with payment system
 		alert('Ticket purchase functionality would be integrated with payment gateway');
 	};
+
+	const getVenueIllustration = (venue: string, category: string) => {
+		const baseClass = "w-full h-full";
+		
+		// Mahjong tile component - subtle and clean
+		const mahjongTile = (x: number, y: number, symbol: string, opacity = 0.15) => `
+			<g transform="translate(${x}, ${y})">
+				<rect width="16" height="22" fill="white" stroke="#10B981" stroke-width="0.5" opacity="${opacity}" rx="2"/>
+				<text x="8" y="15" font-family="serif" font-size="10" text-anchor="middle" fill="#059669" opacity="${opacity + 0.1}">${symbol}</text>
+			</g>
+		`;
+		
+		if (venue.includes('Gateway of India') || category === 'Cruise') {
+			return `<svg viewBox="0 0 400 225" class="${baseClass}">
+				<defs>
+					<linearGradient id="cruise" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="0%" style="stop-color:#ECFDF5"/>
+						<stop offset="60%" style="stop-color:#D1FAE5"/>
+						<stop offset="100%" style="stop-color:#A7F3D0"/>
+					</linearGradient>
+				</defs>
+				<rect width="400" height="225" fill="url(#cruise)"/>
+				<path d="M0 160 Q200 140 400 160 L400 225 L0 225 Z" fill="#10B981" opacity="0.1"/>
+				<rect x="180" y="90" width="40" height="60" fill="#10B981" opacity="0.2" rx="2"/>
+				<path d="M180 90 L200 70 L220 90" fill="#059669" opacity="0.3"/>
+				${mahjongTile(80, 50, '🀀')}
+				${mahjongTile(320, 70, '🀁')}
+				${mahjongTile(60, 180, '🀂')}
+				${mahjongTile(340, 190, '🀃')}
+			</svg>`;
+		}
+		
+		if (venue.includes('Villa') || category === 'Villa Party') {
+			return `<svg viewBox="0 0 400 225" class="${baseClass}">
+				<defs>
+					<linearGradient id="villa" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="0%" style="stop-color:#F0FDF4"/>
+						<stop offset="100%" style="stop-color:#DCFCE7"/>
+					</linearGradient>
+				</defs>
+				<rect width="400" height="225" fill="url(#villa)"/>
+				<ellipse cx="200" cy="180" rx="120" ry="20" fill="#10B981" opacity="0.1"/>
+				<rect x="160" y="100" width="80" height="40" fill="#059669" opacity="0.2" rx="4"/>
+				<path d="M160 100 L200 80 L240 100" fill="#047857" opacity="0.3"/>
+				<circle cx="80" cy="140" r="15" fill="#22C55E" opacity="0.2"/>
+				<circle cx="320" cy="160" r="12" fill="#16A34A" opacity="0.25"/>
+				${mahjongTile(50, 60, '🀄')}
+				${mahjongTile(300, 40, '🀅')}
+				${mahjongTile(40, 190, '🀆')}
+				${mahjongTile(320, 200, '🀀')}
+			</svg>`;
+		}
+		
+		if (venue.includes('Den') || venue.includes('Bar') || category === 'Bar Events') {
+			return `<svg viewBox="0 0 400 225" class="${baseClass}">
+				<defs>
+					<linearGradient id="bar" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="0%" style="stop-color:#F9FAFB"/>
+						<stop offset="100%" style="stop-color:#F3F4F6"/>
+					</linearGradient>
+				</defs>
+				<rect width="400" height="225" fill="url(#bar)"/>
+				<rect x="50" y="120" width="300" height="60" fill="#10B981" opacity="0.1" rx="4"/>
+				<circle cx="120" cy="140" r="8" fill="#059669" opacity="0.3"/>
+				<circle cx="200" cy="135" r="10" fill="#10B981" opacity="0.25"/>
+				<circle cx="280" cy="145" r="6" fill="#16A34A" opacity="0.35"/>
+				<rect x="0" y="40" width="400" height="30" fill="#10B981" opacity="0.05"/>
+				${mahjongTile(30, 80, '🀇')}
+				${mahjongTile(360, 60, '🀈')}
+				${mahjongTile(20, 190, '🀉')}
+				${mahjongTile(350, 180, '🀊')}
+			</svg>`;
+		}
+		
+		if (venue.includes('Learning') || venue.includes('Academy') || category === 'Workshop') {
+			return `<svg viewBox="0 0 400 225" class="${baseClass}">
+				<defs>
+					<linearGradient id="workshop" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="0%" style="stop-color:#F0FDF4"/>
+						<stop offset="100%" style="stop-color:#ECFDF5"/>
+					</linearGradient>
+				</defs>
+				<rect width="400" height="225" fill="url(#workshop)"/>
+				<rect x="80" y="80" width="240" height="80" fill="#10B981" opacity="0.1" rx="8"/>
+				<rect x="100" y="100" width="200" height="40" fill="#059669" opacity="0.15" rx="4"/>
+				<circle cx="130" cy="180" r="8" fill="#10B981" opacity="0.3"/>
+				<circle cx="170" cy="180" r="8" fill="#16A34A" opacity="0.3"/>
+				<circle cx="210" cy="180" r="8" fill="#059669" opacity="0.3"/>
+				${mahjongTile(40, 40, '🀋')}
+				${mahjongTile(340, 30, '🀌')}
+				${mahjongTile(30, 190, '🀍')}
+				${mahjongTile(350, 190, '🀎')}
+			</svg>`;
+		}
+		
+		if (venue.includes('Business') || venue.includes('Corporate') || category === 'Tournament') {
+			return `<svg viewBox="0 0 400 225" class="${baseClass}">
+				<defs>
+					<linearGradient id="business" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="0%" style="stop-color:#FAFAFA"/>
+						<stop offset="100%" style="stop-color:#F4F4F5"/>
+					</linearGradient>
+				</defs>
+				<rect width="400" height="225" fill="url(#business)"/>
+				<rect x="120" y="60" width="40" height="100" fill="#10B981" opacity="0.15"/>
+				<rect x="180" y="80" width="40" height="80" fill="#059669" opacity="0.2"/>
+				<rect x="240" y="70" width="40" height="90" fill="#16A34A" opacity="0.18"/>
+				<rect x="0" y="50" width="400" height="8" fill="#10B981" opacity="0.1"/>
+				${mahjongTile(60, 30, '🀏')}
+				${mahjongTile(320, 20, '🀐')}
+				${mahjongTile(40, 180, '🀑')}
+				${mahjongTile(340, 170, '🀒')}
+			</svg>`;
+		}
+		
+		// Default for Community/Social events
+		return `<svg viewBox="0 0 400 225" class="${baseClass}">
+			<defs>
+				<linearGradient id="community" x1="0%" y1="0%" x2="100%" y2="100%">
+					<stop offset="0%" style="stop-color:#F0FDF4"/>
+					<stop offset="100%" style="stop-color:#ECFDF5"/>
+				</linearGradient>
+			</defs>
+			<rect width="400" height="225" fill="url(#community)"/>
+			<circle cx="200" cy="112" r="40" fill="#10B981" opacity="0.1"/>
+			<circle cx="150" cy="90" r="15" fill="#059669" opacity="0.2"/>
+			<circle cx="200" cy="85" r="18" fill="#10B981" opacity="0.18"/>
+			<circle cx="250" cy="95" r="12" fill="#16A34A" opacity="0.25"/>
+			<ellipse cx="200" cy="160" rx="80" ry="15" fill="#22C55E" opacity="0.1"/>
+			${mahjongTile(70, 50, '🀓')}
+			${mahjongTile(310, 40, '🀔')}
+			${mahjongTile(50, 190, '🀕')}
+			${mahjongTile(330, 180, '🀖')}
+		</svg>`;
+	};
 </script>
 
 <svelte:head>
@@ -307,7 +442,8 @@
 		<div class="grid gap-6 sm:gap-8 md:grid-cols-2">
 			{#each filteredEvents as event}
 				<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow overflow-hidden">
-					<div class="aspect-[16/9] bg-gray-100 relative">
+					<div class="aspect-[16/9] relative">
+						{@html getVenueIllustration(event.venue, event.category)}
 						{#if event.originalPrice}
 							<div class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded text-xs font-medium z-10">
 								Save ₹{(event.originalPrice - event.price).toLocaleString('en-IN')}
