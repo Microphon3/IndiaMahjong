@@ -43,73 +43,18 @@
 		// Show typing indicator
 		isTyping = true;
 		
-		try {
-			// Check if this might trigger a search
-			const needsSearch = /current|latest|recent|new|updated|today|tournament rules|official rules|federation|championship|venue near me|venues in|rule changes|fact check|verify|world mahjong|international mahjong/i.test(currentMessage);
-			
-			if (needsSearch) {
-				isSearching = true;
-				// Add searching message
-				const searchingMessage = {
-					id: messages.length + 1,
-					text: "Let me search for the latest information...",
-					sender: 'bot',
-					timestamp: new Date(),
-					isSearching: true
-				};
-				messages = [...messages, searchingMessage];
-			}
-			
-			// Call our intelligent chat API
-			const response = await fetch('/api/chat', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					message: currentMessage,
-					conversationHistory: messages.slice(1).filter(m => !m.isSearching) // Exclude searching messages
-				})
-			});
-
-			if (!response.ok) {
-				throw new Error('Failed to get response');
-			}
-
-			const data = await response.json();
-			
-			// Remove searching message if it exists
-			if (isSearching) {
-				messages = messages.filter(m => !m.isSearching);
-				isSearching = false;
-			}
-			
-			const botResponse = {
-				id: messages.length + 1,
-				text: data.response,
-				sender: 'bot',
-				timestamp: new Date(),
-				searchPerformed: data.searchPerformed || false
-			};
-			
-			messages = [...messages, botResponse];
-		} catch (error) {
-			console.error('Chat error:', error);
-			
-			// Use comprehensive static knowledge as fallback
-			const staticResponse = getStaticMahjongResponse(currentMessage);
-			const botResponse = {
-				id: messages.length + 1,
-				text: staticResponse,
-				sender: 'bot',
-				timestamp: new Date(),
-				isOfflineKnowledge: true
-			};
-			
-			messages = [...messages, botResponse];
-		} finally {
-			isTyping = false;
-		}
+		// Use static knowledge only (SPA deployment doesn't support API routes)
+		const staticResponse = getStaticMahjongResponse(currentMessage);
+		const botResponse = {
+			id: messages.length + 1,
+			text: staticResponse,
+			sender: 'bot',
+			timestamp: new Date(),
+			isOfflineKnowledge: true
+		};
+		
+		messages = [...messages, botResponse];
+		isTyping = false;
 	};
 
 	const handleKeyPress = (event: KeyboardEvent) => {
@@ -333,22 +278,22 @@
 					Basic Rules
 				</button>
 				<button 
-					onclick={() => { message = "Show me current tournament rules for 2024"; sendMessage(); }}
-					class="bg-blue-50 hover:bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-xs transition-colors border border-blue-200"
-				>
-					🔍 Current Rules
-				</button>
-				<button 
-					onclick={() => { message = "Find premium venues near me"; sendMessage(); }}
+					onclick={() => { message = "Tell me about tournament rules"; sendMessage(); }}
 					class="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg text-xs transition-colors border border-emerald-200"
 				>
-					Find Venues
+					Tournament Rules
 				</button>
 				<button 
-					onclick={() => { message = "Verify latest World Mahjong Organization rules"; sendMessage(); }}
-					class="bg-blue-50 hover:bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-xs transition-colors border border-blue-200"
+					onclick={() => { message = "Show me premium venues"; sendMessage(); }}
+					class="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg text-xs transition-colors border border-emerald-200"
 				>
-					🔍 Verify WMO Rules
+					Premium Venues
+				</button>
+				<button 
+					onclick={() => { message = "What is Taiwanese mahjong?"; sendMessage(); }}
+					class="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg text-xs transition-colors border border-emerald-200"
+				>
+					Taiwanese Rules
 				</button>
 				<button 
 					onclick={() => { message = "Give me strategy tips"; sendMessage(); }}
