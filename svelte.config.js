@@ -7,13 +7,13 @@ const config = {
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
 	kit: {
-		// Static adapter configured for Cloudflare Pages deployment
+		// Static adapter configured for Cloudflare Pages deployment with SPA fallback
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: null,
+			fallback: 'index.html',
 			precompress: false,
-			strict: true
+			strict: false
 		}),
 		prerender: {
 			handleHttpError: 'warn',
