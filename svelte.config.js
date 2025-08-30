@@ -1,15 +1,23 @@
-import ≈ from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import adapter from '@sveltejs/adapter-cloudflare';
 
 /** @type {import('@sveltejs/kit').Config} */
-export default {
-	preprocess: vitePreprocess(),
+const config = {
 	kit: {
-		adapter: adapter()
-		// SPA configuration for Cloudflare Pages
-		// adapter: adapter({
-		// 	fallback: 'index.html',
-		// 	strict: false
-		// })
+		adapter: adapter({
+			// See below for an explanation of these options
+			config: undefined,
+			platformProxy: {
+				configPath: undefined,
+				environment: undefined,
+				persist: undefined
+			},
+			fallback: 'plaintext',
+			routes: {
+				include: ['/*'],
+				exclude: ['<all>']
+			}
+		})
 	}
 };
+
+export default config;
