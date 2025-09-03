@@ -47,7 +47,40 @@
 		<div class="flex lg:flex-1">
 			<a href="/" class="-m-1.5 p-1.5 flex items-center space-x-3 group transition-all duration-300">
 				<div class="w-11 h-11 bg-gradient-to-br from-emerald-600 to-green-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/25 group-hover:scale-105 transition-all duration-300">
-					<span class="text-white font-bold text-lg">麻</span>
+					<svg width="24" height="24" viewBox="0 0 48 48" class="drop-shadow-sm transition-all duration-300">
+						<defs>
+							<linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" style="stop-color:#ffffff"/>
+								<stop offset="50%" style="stop-color:#f0fdf4"/>
+								<stop offset="100%" style="stop-color:#ffffff"/>
+							</linearGradient>
+						</defs>
+						
+						<!-- I - Left tile structure -->
+						<rect x="6" y="8" width="12" height="32" rx="2" fill="url(#logoGradient)"/>
+						<rect x="8" y="10" width="8" height="28" rx="1" fill="rgba(255,255,255,0.1)"/>
+						<rect x="6" y="16" width="12" height="2" fill="rgba(255,255,255,0.2)"/>
+						<rect x="6" y="24" width="12" height="2" fill="rgba(255,255,255,0.2)"/>
+						<rect x="6" y="32" width="12" height="2" fill="rgba(255,255,255,0.2)"/>
+						
+						<!-- M - Right side made of overlapping tiles -->
+						<rect x="24" y="8" width="8" height="32" rx="2" fill="url(#logoGradient)"/>
+						<rect x="38" y="8" width="8" height="32" rx="2" fill="url(#logoGradient)"/>
+						<rect x="31" y="12" width="8" height="20" rx="2" fill="url(#logoGradient)" opacity="0.9"/>
+						
+						<!-- Tile details for M -->
+						<rect x="26" y="10" width="4" height="28" rx="1" fill="rgba(255,255,255,0.1)"/>
+						<rect x="40" y="10" width="4" height="28" rx="1" fill="rgba(255,255,255,0.1)"/>
+						<rect x="33" y="14" width="4" height="16" rx="1" fill="rgba(255,255,255,0.1)"/>
+						
+						<!-- Subtle tile lines -->
+						<rect x="24" y="18" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+						<rect x="38" y="18" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+						<rect x="31" y="20" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+						<rect x="24" y="28" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+						<rect x="38" y="28" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+						<rect x="31" y="26" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+					</svg>
 				</div>
 				<div class="flex flex-col">
 					<span class="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">India Mahjong</span>

@@ -212,14 +212,14 @@ export const venues: Venue[] = [
 		city: 'Mumbai',
 		seatsAvailable: 2,
 		totalSeats: 4,
-		gameStyle: 'Family vibe',
+		gameStyle: 'Community vibe',
 		timing: 'Sunday morning',
 		pricePerSession: 900,
 		rating: 4.7,
 		reviewCount: 61,
 		bookingType: 'instant',
-		amenities: ['Family atmosphere', 'Sunday brunch', 'Homely setting', 'Traditional values'],
-		description: 'Warm family-style Sunday morning sessions with homemade treats',
+		amenities: ['Community atmosphere', 'Sunday brunch', 'Homely setting', 'Traditional values'],
+		description: 'Warm community-style Sunday morning sessions with homemade treats',
 		hostType: 'home'
 	},
 	{
@@ -683,14 +683,14 @@ export const venues: Venue[] = [
 		city: 'Mumbai',
 		seatsAvailable: 3,
 		totalSeats: 4,
-		gameStyle: 'Suburban family style',
-		timing: 'Family evening sessions',
+		gameStyle: 'Suburban community style',
+		timing: 'Community evening sessions',
 		pricePerSession: 900,
 		rating: 4.7,
 		reviewCount: 46,
 		bookingType: 'instant',
-		amenities: ['Thane area', 'Family atmosphere', 'Suburban charm', 'Regular group'],
-		description: 'Warm family-style sessions in Mumbai\'s suburban Thane area',
+		amenities: ['Thane area', 'Community atmosphere', 'Suburban charm', 'Regular group'],
+		description: 'Warm community-style sessions in Mumbai\'s suburban Thane area',
 		hostType: 'home'
 	},
 	{
@@ -1002,8 +1002,8 @@ export const venues: Venue[] = [
 		rating: 4.8,
 		reviewCount: 41,
 		bookingType: 'instant',
-		amenities: ['Sector 17', 'Punjabi warmth', 'Family atmosphere', 'Weekend sessions'],
-		description: 'Warm Punjabi hospitality with enthusiastic weekend family sessions',
+		amenities: ['Sector 17', 'Punjabi warmth', 'Community atmosphere', 'Weekend sessions'],
+		description: 'Warm Punjabi hospitality with enthusiastic weekend community sessions',
 		hostType: 'home'
 	},
 	{

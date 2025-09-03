@@ -138,7 +138,7 @@
 		},
 		{
 			id: 11,
-			name: 'Custom Mahjong Set – Add Your Family Crest or Logo',
+			name: 'Custom Mahjong Set – Add Your Community Crest or Logo',
 			category: 'Mahjong Sets',
 			price: 30000,
 			originalPrice: null,
@@ -146,8 +146,8 @@
 			reviewCount: 62,
 			brand: 'Personalised Play, Delhi',
 			image: '/api/placeholder/300/300',
-			description: 'Personalized mahjong set with your family crest, logo, or custom design.',
-			features: ['Fully customizable', 'Family crest option', 'Logo integration', 'Personal touch']
+			description: 'Personalized mahjong set with your community crest, logo, or custom design.',
+			features: ['Fully customizable', 'Community crest option', 'Logo integration', 'Personal touch']
 		},
 		{
 			id: 12,

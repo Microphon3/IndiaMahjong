@@ -204,18 +204,74 @@
 
 <div class="bg-white">
 	<!-- Hero Section -->
-	<div class="relative isolate overflow-hidden bg-gradient-to-b from-emerald-100/20">
-		<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-			<div class="mx-auto max-w-2xl text-center">
-				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-					Meet Our Team
+	<div class="relative isolate overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
+		<!-- Background Mahjong Tiles Pattern -->
+		<div class="absolute inset-0 opacity-5">
+			<div class="grid grid-cols-12 gap-2 h-full p-8">
+				{#each Array(60) as _, i}
+					<div class="bg-emerald-600 rounded-sm flex items-center justify-center text-white text-xs transform" style="transform: rotate({(i * 15) % 360}deg)">
+						{['🀇', '🀈', '🀉', '🀊', '🀋', '🀌', '🀍', '🀎', '🀏', '🀐', '🀑', '🀒'][i % 12]}
+					</div>
+				{/each}
+			</div>
+		</div>
+		
+		<!-- Decorative gradient blobs -->
+		<div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full opacity-10 blur-xl"></div>
+		<div class="absolute top-40 right-20 w-48 h-48 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-full opacity-10 blur-2xl"></div>
+		<div class="absolute bottom-20 left-1/3 w-24 h-24 bg-gradient-to-r from-green-400 to-teal-500 rounded-full opacity-10 blur-lg"></div>
+		
+		<div class="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+			<div class="mx-auto max-w-4xl text-center">
+				<!-- Team badge -->
+				<div class="flex justify-center mb-8">
+					<div class="inline-flex items-center rounded-full bg-gradient-to-r from-emerald-100 to-green-100 border border-emerald-200 px-6 py-3 text-sm font-medium text-emerald-900 shadow-lg backdrop-blur-sm">
+						<div class="w-2 h-2 bg-emerald-500 rounded-full mr-3 animate-pulse"></div>
+						India's Mahjong Experts
+					</div>
+				</div>
+				
+				<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
+					<span class="block sm:inline">Meet Our</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 block sm:inline">Team</span>
 				</h1>
-				<p class="mt-6 text-lg leading-8 text-gray-600">
+				
+				<p class="text-base sm:text-lg lg:text-xl leading-7 sm:leading-8 text-gray-700 mb-12 max-w-3xl mx-auto px-4 sm:px-0">
 					The passionate experts, community builders, and specialists who make India Mahjong 
 					the premier platform for learning and playing this ancient art.
 				</p>
+				
+				<!-- Team stats -->
+				<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12 px-4 sm:px-0">
+					<div class="text-center">
+						<div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+							<span class="text-lg sm:text-2xl font-bold text-white">11</span>
+						</div>
+						<div class="text-xl sm:text-2xl font-bold text-gray-900">Team Members</div>
+						<div class="text-xs sm:text-sm text-gray-600">Across all departments</div>
+					</div>
+					
+					<div class="text-center">
+						<div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+							<span class="text-lg sm:text-2xl font-bold text-white">25+</span>
+						</div>
+						<div class="text-xl sm:text-2xl font-bold text-gray-900">Years Experience</div>
+						<div class="text-xs sm:text-sm text-gray-600">Combined Mahjong expertise</div>
+					</div>
+					
+					<div class="text-center">
+						<div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+							<span class="text-lg sm:text-2xl font-bold text-white">6</span>
+						</div>
+						<div class="text-xl sm:text-2xl font-bold text-gray-900">Specialties</div>
+						<div class="text-xs sm:text-sm text-gray-600">From teaching to operations</div>
+					</div>
+				</div>
+				
 			</div>
 		</div>
+		
+		<!-- Bottom wave decoration -->
+		<div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-r from-transparent via-emerald-100/50 to-transparent transform -skew-y-1"></div>
 	</div>
 
 	<!-- Experts Section -->
@@ -232,7 +288,7 @@
 			</p>
 		</div>
 
-		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+		<div class="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 px-4 sm:px-0">
 			{#each experts as expert}
 				<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow p-6">
 					<div class="aspect-square rounded-lg mb-4">

@@ -16,8 +16,7 @@
 	{#if showTooltip}
 		<div class="absolute bottom-full left-0 mb-2 w-64 bg-gray-900 text-white text-xs rounded-lg p-3 shadow-lg">
 			<div class="relative">
-				<p class="font-medium mb-1">Mock Website</p>
-				<p class="text-gray-300">Seeking business partners to own and run this Mahjong platform.</p>
+				<p class="font-medium">This is a Mock Website. Contact Admin for Queries.</p>
 				<!-- Arrow pointing down -->
 				<div class="absolute top-full left-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-900"></div>
 			</div>

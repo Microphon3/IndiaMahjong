@@ -37,7 +37,40 @@
 		<div class="flex lg:flex-1">
 			<a href="/" class="-m-1.5 p-1.5 flex items-center space-x-2">
 				<div class="w-10 h-10 bg-gradient-to-br from-emerald-600 to-green-700 rounded-lg flex items-center justify-center">
-					<span class="text-white font-bold text-lg">麻</span>
+					<svg width="20" height="20" viewBox="0 0 48 48" class="drop-shadow-sm">
+						<defs>
+							<linearGradient id="logoGradientSimple" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" style="stop-color:#ffffff"/>
+								<stop offset="50%" style="stop-color:#f0fdf4"/>
+								<stop offset="100%" style="stop-color:#ffffff"/>
+							</linearGradient>
+						</defs>
+						
+						<!-- I - Left tile structure -->
+						<rect x="6" y="8" width="12" height="32" rx="2" fill="url(#logoGradientSimple)"/>
+						<rect x="8" y="10" width="8" height="28" rx="1" fill="rgba(255,255,255,0.1)"/>
+						<rect x="6" y="16" width="12" height="2" fill="rgba(255,255,255,0.2)"/>
+						<rect x="6" y="24" width="12" height="2" fill="rgba(255,255,255,0.2)"/>
+						<rect x="6" y="32" width="12" height="2" fill="rgba(255,255,255,0.2)"/>
+						
+						<!-- M - Right side made of overlapping tiles -->
+						<rect x="24" y="8" width="8" height="32" rx="2" fill="url(#logoGradientSimple)"/>
+						<rect x="38" y="8" width="8" height="32" rx="2" fill="url(#logoGradientSimple)"/>
+						<rect x="31" y="12" width="8" height="20" rx="2" fill="url(#logoGradientSimple)" opacity="0.9"/>
+						
+						<!-- Tile details for M -->
+						<rect x="26" y="10" width="4" height="28" rx="1" fill="rgba(255,255,255,0.1)"/>
+						<rect x="40" y="10" width="4" height="28" rx="1" fill="rgba(255,255,255,0.1)"/>
+						<rect x="33" y="14" width="4" height="16" rx="1" fill="rgba(255,255,255,0.1)"/>
+						
+						<!-- Subtle tile lines -->
+						<rect x="24" y="18" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+						<rect x="38" y="18" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+						<rect x="31" y="20" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+						<rect x="24" y="28" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+						<rect x="38" y="28" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+						<rect x="31" y="26" width="8" height="1" fill="rgba(255,255,255,0.3)"/>
+					</svg>
 				</div>
 				<span class="text-xl font-bold text-gray-900">India Mahjong</span>
 			</a>
@@ -46,25 +79,26 @@
 		<div class="flex lg:hidden">
 			<button
 				type="button"
-				class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+				class="-m-1 inline-flex items-center justify-center rounded-lg p-3 text-gray-700 hover:bg-gray-100 transition-colors min-w-[48px] min-h-[48px]"
 				onclick={toggleMenu}
+				aria-expanded={isMenuOpen}
 			>
-				<span class="sr-only">Open main menu</span>
+				<span class="sr-only">{isMenuOpen ? 'Close main menu' : 'Open main menu'}</span>
 				{#if isMenuOpen}
-					<X class="h-6 w-6" aria-hidden="true" />
+					<X class="h-7 w-7" aria-hidden="true" />
 				{:else}
-					<Menu class="h-6 w-6" aria-hidden="true" />
+					<Menu class="h-7 w-7" aria-hidden="true" />
 				{/if}
 			</button>
 		</div>
 		
-		<div class="hidden lg:flex lg:gap-x-12">
+		<div class="hidden lg:flex lg:gap-x-8">
 			{#each navigation as item}
 				<a
 					href={item.href}
 					class={cn(
-						'text-sm font-semibold leading-6 transition-colors hover:text-emerald-600',
-						$page.url.pathname === item.href ? 'text-emerald-600' : 'text-gray-900'
+						'px-3 py-2 text-sm font-semibold leading-6 transition-colors hover:text-emerald-600 rounded-lg hover:bg-emerald-50 min-h-[40px] flex items-center',
+						$page.url.pathname === item.href ? 'text-emerald-600 bg-emerald-50' : 'text-gray-900'
 					)}
 				>
 					{item.name}
@@ -113,7 +147,7 @@
 			{:else}
 				<a
 					href="/auth/login"
-					class="flex items-center space-x-2 text-sm font-semibold leading-6 text-gray-900 hover:text-emerald-600"
+					class="flex items-center space-x-2 px-4 py-2 text-sm font-semibold leading-6 text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors min-h-[40px]"
 				>
 					<LogIn class="h-4 w-4" />
 					<span>Log in</span>
@@ -126,7 +160,7 @@
 	{#if isMenuOpen}
 		<div class="lg:hidden">
 			<div class="fixed inset-0 z-10"></div>
-			<div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+			<div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
 				<div class="flex items-center justify-between">
 					<a href="/" class="-m-1.5 p-1.5 flex items-center space-x-2">
 						<div class="w-8 h-8 bg-gradient-to-br from-emerald-600 to-green-700 rounded-lg flex items-center justify-center">
@@ -136,21 +170,21 @@
 					</a>
 					<button
 						type="button"
-						class="-m-2.5 rounded-md p-2.5 text-gray-700"
+						class="-m-1 rounded-lg p-3 text-gray-700 hover:bg-gray-100 transition-colors min-w-[48px] min-h-[48px]"
 						onclick={toggleMenu}
 					>
 						<span class="sr-only">Close menu</span>
-						<X class="h-6 w-6" aria-hidden="true" />
+						<X class="h-7 w-7" aria-hidden="true" />
 					</button>
 				</div>
 				<div class="mt-6 flow-root">
-					<div class="-my-6 divide-y divide-gray-500/10">
-						<div class="space-y-2 py-6">
+					<div class="-my-4 divide-y divide-gray-500/10">
+						<div class="space-y-1 py-6">
 							{#each navigation as item}
 								<a
 									href={item.href}
 									class={cn(
-										'-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50',
+										'-mx-2 block rounded-xl px-4 py-3 text-base font-semibold leading-7 hover:bg-gray-50 transition-colors min-h-[52px] flex items-center',
 										$page.url.pathname === item.href ? 'text-emerald-600 bg-emerald-50' : 'text-gray-900'
 									)}
 									onclick={toggleMenu}
@@ -161,23 +195,23 @@
 						</div>
 						<div class="py-6">
 							{#if isLoggedIn}
-								<div class="space-y-2">
+								<div class="space-y-1">
 									<a
 										href="/profile"
-										class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+										class="-mx-2 block rounded-xl px-4 py-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 transition-colors min-h-[52px] flex items-center"
 										onclick={toggleMenu}
 									>
 										Profile
 									</a>
 									<a
 										href="/dashboard"
-										class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+										class="-mx-2 block rounded-xl px-4 py-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 transition-colors min-h-[52px] flex items-center"
 										onclick={toggleMenu}
 									>
 										Dashboard
 									</a>
 									<button
-										class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 w-full text-left"
+										class="-mx-2 block rounded-xl px-4 py-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 w-full text-left transition-colors min-h-[52px] flex items-center"
 										onclick={handleSignOut}
 									>
 										Sign out
@@ -186,7 +220,7 @@
 							{:else}
 								<a
 									href="/auth/login"
-									class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+									class="-mx-2 block rounded-xl px-4 py-3 text-base font-semibold leading-7 text-white bg-emerald-600 hover:bg-emerald-700 transition-colors min-h-[52px] flex items-center justify-center"
 									onclick={toggleMenu}
 								>
 									Log in

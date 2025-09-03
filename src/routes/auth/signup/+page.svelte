@@ -88,7 +88,7 @@
 			<div class="flex justify-center mb-6">
 				<div class="inline-flex items-center rounded-full bg-gradient-to-r from-amber-100 to-yellow-100 border border-amber-200 px-4 py-2 text-sm font-medium text-amber-900 shadow-sm">
 					<div class="w-2 h-2 bg-amber-500 rounded-full mr-2 animate-pulse"></div>
-					🎆 Join Our Family
+					🎆 Join Our Community
 				</div>
 			</div>
 			

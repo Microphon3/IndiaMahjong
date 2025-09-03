@@ -7,6 +7,8 @@
 	const timings = ['All Timings', 'Morning', 'Afternoon', 'Evening', 'Weekend', 'Flexible'];
 	const bookingTypes = ['All Types', 'instant', 'approval', 'waitlist'];
 
+	let showAllVenues = $state(false);
+	
 	let selectedCity = $state('All Cities');
 	let selectedStyle = $state('All Styles');
 	let selectedTiming = $state('All Timings');
@@ -105,11 +107,11 @@
 					Beautiful Venues • Welcoming Hosts
 				</div>
 				
-				<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6 leading-tight">
-					Find Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700">Perfect Table</span>
+				<h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-6 leading-tight">
+					<span class="block sm:inline">Find Your</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 block sm:inline">Perfect Table</span>
 				</h1>
 				
-				<p class="text-xl text-gray-700 mb-4 max-w-3xl mx-auto leading-relaxed">
+				<p class="text-lg sm:text-xl text-gray-700 mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
 					Join wonderful hosts across India who love sharing Mahjong. From warm homes to 
 					beautiful clubs, find your perfect table and new friends.
 				</p>
@@ -159,61 +161,164 @@
 		</div>
 	</div>
 
-	<!-- Premium Filters -->
-	<div class="bg-gradient-to-r from-gray-50 via-white to-emerald-50 border-t border-gray-200/50">
-		<div class="mx-auto max-w-7xl px-6 py-6 lg:px-8">
-			<div class="flex flex-wrap items-center gap-4">
-				<div class="flex items-center gap-3">
-					<div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
-						<Filter class="w-4 h-4 text-white" />
+	<!-- Progressive Disclosure Section -->
+	<div class="bg-white py-16 sm:py-24">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			
+			{#if !showAllVenues}
+				<!-- Newcomer Path - Simple Recommendations -->
+				<div class="mx-auto max-w-4xl text-center mb-16">
+					<h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 mb-6">
+						Your First Game Awaits
+					</h2>
+					<p class="text-lg text-gray-600 mb-12">
+						We've handpicked welcoming venues perfect for newcomers. Choose your city and we'll recommend the best place to start.
+					</p>
+
+					<!-- Simple City Selection -->
+					<div class="bg-gradient-to-br from-emerald-50 to-green-50 rounded-3xl p-8 mb-8 border-2 border-emerald-200 shadow-xl">
+						<h3 class="text-xl font-bold text-gray-900 mb-6">Select Your City</h3>
+						
+						<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+							{#each ['Mumbai', 'Delhi', 'Bangalore', 'Pune', 'Chennai', 'Hyderabad'] as city}
+								<button 
+									onclick={() => selectedCity = city}
+									class="p-4 rounded-xl border-2 {selectedCity === city ? 'border-emerald-500 bg-emerald-100' : 'border-gray-200 bg-white hover:border-emerald-300'} transition-all duration-200"
+								>
+									<div class="text-lg font-semibold">{city}</div>
+								</button>
+							{/each}
+						</div>
+
+						{#if selectedCity !== 'All Cities'}
+							<!-- Show Recommended Venue for Selected City -->
+							{@const recommendedVenue = venues.filter(v => v.city === selectedCity && v.level === 'Beginner' || v.gameStyle?.includes('Beginner'))[0] || venues.filter(v => v.city === selectedCity)[0]}
+							{#if recommendedVenue}
+								<div class="bg-white rounded-2xl p-6 shadow-lg border border-emerald-200">
+									<div class="text-center">
+										<div class="text-2xl mb-3">🏠</div>
+										<h4 class="text-xl font-bold text-gray-900 mb-2">{recommendedVenue.hostName}</h4>
+										<p class="text-gray-600 mb-4">{recommendedVenue.location}</p>
+										
+										<div class="flex items-center justify-center gap-4 text-sm text-gray-600 mb-4">
+											<div class="flex items-center">
+												<Clock class="w-4 h-4 mr-1" />
+												<span>{recommendedVenue.timing}</span>
+											</div>
+											<div class="flex items-center">
+												<Users class="w-4 h-4 mr-1" />
+												<span>{recommendedVenue.seatsAvailable} seats available</span>
+											</div>
+										</div>
+
+										<div class="text-emerald-800 font-semibold mb-2">
+											₹{recommendedVenue.pricePerSession} per session
+										</div>
+										<p class="text-xs text-gray-600 mb-4">Casual play session • Includes tea & snacks</p>
+
+										<div class="flex flex-col gap-3">
+											<a
+												href="/book/{recommendedVenue.id}"
+												class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 px-6 py-3 text-base font-bold text-white shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105"
+											>
+												<Phone class="w-5 h-5 mr-2" />
+												Book Your Spot
+											</a>
+											<p class="text-xs text-gray-500">Perfect for beginners • Welcoming atmosphere</p>
+										</div>
+										
+										<!-- What's Next -->
+										<div class="mt-6 p-3 bg-emerald-50 rounded-xl border border-emerald-200">
+											<h4 class="font-semibold text-emerald-800 text-sm mb-1">What's Next?</h4>
+											<p class="text-xs text-emerald-700">After your first game, consider joining our community for regular updates!</p>
+										</div>
+									</div>
+								</div>
+							{/if}
+						{/if}
 					</div>
-					<span class="text-sm font-bold text-gray-800">Find Your Vibe:</span>
+
+					<!-- Show All Options -->
+					<div class="text-center">
+						<button
+							onclick={() => showAllVenues = true}
+							class="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
+						>
+							<span>I want to browse all venues and use filters</span>
+							<Search class="w-5 h-5 ml-1" />
+						</button>
+					</div>
 				</div>
-				<button class="inline-flex items-center px-3 py-2 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 rounded-lg text-sm font-medium text-emerald-700 hover:shadow-sm transition-all duration-200">
-					Available Today
-				</button>
-				<button class="inline-flex items-center px-3 py-2 border border-amber-200 bg-amber-50 hover:bg-amber-100 rounded-lg text-sm font-medium text-amber-700 hover:shadow-sm transition-all duration-200">
-					Welcoming to New Players
-				</button>
-				<button class="inline-flex items-center px-3 py-2 border border-purple-200 bg-purple-50 hover:bg-purple-100 rounded-lg text-sm font-medium text-purple-700 hover:shadow-sm transition-all duration-200">
-					Beautiful Setup
-				</button>
-				<button class="inline-flex items-center px-3 py-2 border border-rose-200 bg-rose-50 hover:bg-rose-100 rounded-lg text-sm font-medium text-rose-700 hover:shadow-sm transition-all duration-200">
-					Tea & Treats
-				</button>
-			</div>
-		</div>
-	</div>
 
-	<!-- Premium Sort & Results Count -->
-	<div class="mx-auto max-w-7xl px-6 lg:px-8 py-6">
-		<div class="flex items-center justify-between bg-gradient-to-r from-white via-gray-50 to-white rounded-2xl p-6 border border-gray-200/50 shadow-sm">
-			<div class="flex items-center">
-				<div class="w-3 h-3 bg-emerald-500 rounded-full mr-3 animate-pulse"></div>
-				<p class="text-base font-medium text-gray-800">
-					<span class="font-bold text-emerald-600">{filteredVenues.length} wonderful venues</span> waiting to welcome you
-				</p>
-			</div>
-			<div class="flex items-center gap-4">
-				<button class="inline-flex items-center px-3 py-2 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 rounded-lg text-sm font-medium text-emerald-700 hover:shadow-sm transition-all duration-200">
-					<MapPin class="w-4 h-4 mr-2" />
-					Map View
-				</button>
-				<select class="border-2 border-gray-200 bg-white rounded-xl px-4 py-3 text-sm font-medium focus:ring-emerald-500 focus:border-emerald-500 shadow-md hover:shadow-lg transition-all duration-300">
-					<option>Nearest First</option>
-					<option>Most Welcoming</option>
-					<option>Price: Low to High</option>
-					<option>Price: High to Low</option>
-					<option>Available Today</option>
-				</select>
-			</div>
-		</div>
-	</div>
+			{:else}
+				<!-- Veterans View - Full Search & Filter Experience -->
+				<div class="mx-auto max-w-2xl text-center mb-12">
+					<h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 mb-4">
+						Browse All Venues
+					</h2>
+					<p class="text-lg text-gray-600 mb-6">
+						Use filters and search to find exactly what you're looking for
+					</p>
+					
+					<!-- Back to Simple View -->
+					<button
+						onclick={() => showAllVenues = false}
+						class="text-sm text-gray-500 hover:text-gray-700"
+					>
+						← Back to simple recommendations
+					</button>
+				</div>
 
-	<!-- Clean Venue Cards -->
-	<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
-		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{#each paginatedVenues as venue, index}
+				<!-- Full Filter System -->
+				<div class="bg-gradient-to-r from-gray-50 via-white to-emerald-50 border border-gray-200/50 rounded-2xl p-6 mb-8">
+					<div class="flex flex-wrap items-center gap-4">
+						<div class="flex items-center gap-3">
+							<div class="w-8 h-8 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
+								<Filter class="w-4 h-4 text-white" />
+							</div>
+							<span class="text-sm font-bold text-gray-800">Find Your Vibe:</span>
+						</div>
+						<button class="inline-flex items-center px-3 py-2 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 rounded-lg text-sm font-medium text-emerald-700">
+							Available Today
+						</button>
+						<button class="inline-flex items-center px-3 py-2 border border-amber-200 bg-amber-50 hover:bg-amber-100 rounded-lg text-sm font-medium text-amber-700">
+							Beginner Friendly  
+						</button>
+						<button class="inline-flex items-center px-3 py-2 border border-purple-200 bg-purple-50 hover:bg-purple-100 rounded-lg text-sm font-medium text-purple-700">
+							Beautiful Setup
+						</button>
+					</div>
+				</div>
+
+				<!-- Results Count -->
+				<div class="flex items-center justify-between bg-gradient-to-r from-white via-gray-50 to-white rounded-2xl p-6 border border-gray-200/50 shadow-sm mb-8">
+					<div class="flex items-center">
+						<div class="w-3 h-3 bg-emerald-500 rounded-full mr-3 animate-pulse"></div>
+						<p class="text-base font-medium text-gray-800">
+							<span class="font-bold text-emerald-600">{filteredVenues.length} venues</span> match your preferences
+						</p>
+					</div>
+				</div>
+			{/if}
+			
+			{#if showAllVenues}
+				<!-- Sort Options for Veterans -->
+				<div class="flex items-center justify-end gap-4 mb-8">
+					<button class="inline-flex items-center px-3 py-2 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 rounded-lg text-sm font-medium text-emerald-700">
+						<MapPin class="w-4 h-4 mr-2" />
+						Map View
+					</button>
+					<select class="border-2 border-gray-200 bg-white rounded-xl px-4 py-3 text-sm font-medium focus:ring-emerald-500 focus:border-emerald-500">
+						<option>Nearest First</option>
+						<option>Most Welcoming</option>
+						<option>Price: Low to High</option>
+						<option>Available Today</option>
+					</select>
+				</div>
+
+				<!-- All Venue Cards -->
+				<div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+					{#each paginatedVenues as venue, index}
 				<div class="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg hover:border-emerald-200 transition-all duration-300 cursor-pointer">
 					<!-- Header -->
 					<div class="p-6 pb-4">
@@ -263,8 +368,8 @@
 			{/each}
 		</div>
 
-		<!-- Premium Empty State -->
-		{#if filteredVenues.length === 0}
+		<!-- Empty State -->
+		{#if paginatedVenues.length === 0}
 			<div class="text-center py-16">
 				<div class="w-28 h-28 mx-auto mb-6 bg-gradient-to-br from-emerald-100 to-green-200 rounded-3xl flex items-center justify-center">
 					<div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center">
@@ -273,75 +378,37 @@
 				</div>
 				<h3 class="text-2xl font-bold text-gray-900 mb-4">Looking for something specific?</h3>
 				<p class="text-lg text-gray-600 mb-6">We're always adding wonderful new hosts. Try adjusting your search or check back soon!</p>
-				
-				<!-- Debug Information -->
-				<div class="mt-6 p-4 bg-gray-100 rounded-lg text-sm text-gray-700 max-w-2xl mx-auto">
-					<div><strong>Debug Info:</strong></div>
-					<div>Total venues in data: {venues?.length || 'UNDEFINED'}</div>
-					<div>Venues type: {typeof venues}</div>
-					<div>Venues is array: {Array.isArray(venues)}</div>
-					<div>Filtered venues: {filteredVenues.length}</div>
-					<div>First venue name: {venues?.[0]?.hostName || 'NOT FOUND'}</div>
-					<div>Current filters:</div>
-					<div>• City: "{selectedCity}"</div>
-					<div>• Style: "{selectedStyle}"</div>
-					<div>• Timing: "{selectedTiming}"</div>
-					<div>• Booking Type: "{selectedBookingType}"</div>
-					<div>• Search: "{searchQuery}"</div>
-					<div>• Price Range: [{priceRange[0]} - {priceRange[1]}]</div>
-					
-					<!-- Reset Button for Testing -->
-					<button 
-						onclick={() => {
-							selectedCity = 'All Cities';
-							selectedStyle = 'All Styles'; 
-							selectedTiming = 'All Timings';
-							selectedBookingType = 'All Types';
-							searchQuery = '';
-							priceRange = [800, 1500];
-						}}
-						class="mt-4 bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-emerald-700"
-					>
-						Reset All Filters
-					</button>
-				</div>
-			</div>
-		{:else if totalPages > 1}
-			<div class="text-center mt-16">
-				<div class="inline-flex items-center bg-white/80 backdrop-blur-sm border border-white/50 rounded-2xl shadow-2xl p-2">
-					<button 
-						onclick={() => currentPage = Math.max(1, currentPage - 1)}
-						disabled={currentPage === 1}
-						class="px-6 py-3 text-sm font-bold text-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 rounded-xl shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
-					>
-						← Previous
-					</button>
-					<div class="px-8 py-3 text-sm font-bold text-gray-800">
-						Page {currentPage} of {totalPages}
-					</div>
-					<button 
-						onclick={() => currentPage = Math.min(totalPages, currentPage + 1)}
-						disabled={currentPage === totalPages}
-						class="px-6 py-3 text-sm font-bold text-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 rounded-xl shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
-					>
-						Next →
-					</button>
-				</div>
 			</div>
 		{/if}
+				
+				<!-- Pagination -->
+				{#if totalPages > 1}
+					<div class="text-center mt-12">
+						<div class="inline-flex items-center bg-white border border-gray-200 rounded-2xl shadow-lg p-2">
+							<button 
+								onclick={() => currentPage = Math.max(1, currentPage - 1)}
+								disabled={currentPage === 1}
+								class="px-6 py-3 text-sm font-medium text-gray-700 hover:text-emerald-600 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+							>
+								← Previous
+							</button>
+							<div class="px-8 py-3 text-sm font-medium text-gray-800">
+								Page {currentPage} of {totalPages}
+							</div>
+							<button 
+								onclick={() => currentPage = Math.min(totalPages, currentPage + 1)}
+								disabled={currentPage === totalPages}
+								class="px-6 py-3 text-sm font-medium text-gray-700 hover:text-emerald-600 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+							>
+								Next →
+							</button>
+						</div>
+					</div>
+				{/if}
+			{/if}
+		</div>
 	</div>
 
-	<!-- Premium Results Summary -->
-	{#if filteredVenues.length > 0}
-		<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-8">
-			<div class="text-center bg-gradient-to-r from-emerald-50 via-white to-green-50 rounded-2xl py-6 px-8 border border-emerald-200/50">
-				<p class="text-sm font-medium text-gray-700">
-					Showing <span class="font-bold text-emerald-600">{paginatedVenues.length}</span> of <span class="font-bold text-emerald-600">{filteredVenues.length}</span> welcoming venues
-					<span class="text-emerald-600 ml-2">🏠</span>
-				</p>
-			</div>
-		</div>
-	{/if}
 
 	<!-- Premium CTA Section -->
 	<div class="bg-gradient-to-br from-emerald-600 via-green-600 to-emerald-700 py-20 sm:py-28 relative overflow-hidden">

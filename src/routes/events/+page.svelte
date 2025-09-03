@@ -128,7 +128,7 @@
 			rating: 4.5,
 			reviews: 67,
 			description: 'Relaxed Sunday gathering for Mahjong enthusiasts. Perfect for families and casual players.',
-			highlights: ['Family-friendly', 'Multiple skill levels', 'Tea & snacks', 'Friendly competition', 'Regular attendees'],
+			highlights: ['Community-friendly', 'Multiple skill levels', 'Tea & snacks', 'Friendly competition', 'Regular attendees'],
 			difficulty: 'All Levels'
 		}
 	];
@@ -439,9 +439,9 @@
 
 	<!-- Events Grid -->
 	<div class="mx-auto max-w-7xl px-6 lg:px-8 pb-24">
-		<div class="grid gap-6 sm:gap-8 md:grid-cols-2">
+		<div class="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 px-4 sm:px-0">
 			{#each filteredEvents as event}
-				<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow overflow-hidden">
+				<div class="bg-white rounded-lg shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow overflow-hidden mx-auto w-full max-w-lg sm:max-w-none">
 					<div class="aspect-[16/9] relative">
 						{@html getVenueIllustration(event.venue, event.category)}
 						{#if event.originalPrice}

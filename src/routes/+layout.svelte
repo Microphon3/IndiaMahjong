@@ -5,6 +5,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import MockSitePopup from '$lib/components/MockSitePopup.svelte';
 	import MockSiteBadge from '$lib/components/MockSiteBadge.svelte';
+	import MsFlower from '$lib/components/MsFlower.svelte';
 
 	let { children } = $props();
 </script>
@@ -30,4 +31,7 @@
 	
 	<!-- Mock site badge -->
 	<MockSiteBadge />
+	
+	<!-- Ms. Flower chatbot -->
+	<MsFlower />
 </div>

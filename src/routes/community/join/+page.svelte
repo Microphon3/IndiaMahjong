@@ -77,34 +77,68 @@
 </script>
 
 <svelte:head>
-	<title>Join Our Family - India Mahjong</title>
+	<title>Join Our Community - India Mahjong</title>
 	<meta name="description" content="Connect with wonderful Mahjong players across India. Simple onboarding to join our warm community." />
 </svelte:head>
 
 <div class="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50 relative">
 	<div class="absolute inset-0 bg-grid-gray-900/[0.04] bg-[size:20px_20px]" aria-hidden="true"></div>
 	{#if !isSubmitted}
-		<!-- Header -->
-		<div class="relative bg-white/80 backdrop-blur-sm border-b border-emerald-200/50">
-			<div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
-				<div class="mx-auto max-w-2xl text-center">
-					<div class="flex justify-center mb-6">
-						<div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-700 rounded-2xl flex items-center justify-center shadow-2xl">
-							<span class="text-white font-bold text-2xl">麻</span>
-						</div>
+		<!-- Hero Section -->
+		<div class="relative isolate overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-green-50">
+			<div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+				<div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-emerald-400 to-green-600 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+			</div>
+
+			<div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+				<div class="mx-auto max-w-4xl text-center">
+					<!-- Premium Badge -->
+					<div class="inline-flex items-center rounded-full bg-gradient-to-r from-emerald-100 to-green-100 border border-emerald-200 px-6 py-3 text-sm font-medium text-emerald-900 mb-8 shadow-sm">
+						<div class="w-2 h-2 bg-emerald-500 rounded-full mr-3 animate-pulse"></div>
+						Join India's Most Welcoming Mahjong Community
 					</div>
-					<h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-						Join Our Family
+					
+					<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6 leading-tight">
+						Welcome to Our<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700">麻將 Community</span>
 					</h1>
-					<p class="mt-6 text-lg leading-8 text-gray-600">
-						Connect with wonderful players across India
+					
+					<p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+						Connect with passionate players, learn from patient teachers, and become part of India's most vibrant Mahjong community.
 					</p>
 				</div>
 			</div>
+
+			<div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+				<div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-emerald-400 to-green-600 opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+			</div>
 		</div>
 
-		<!-- Benefits Section -->
+		<!-- Premium Stats -->
 		<div class="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
+			<div class="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/50 p-8 sm:p-12 mb-16">
+				<div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-400/10 via-emerald-400/10 to-purple-400/10"></div>
+				
+				<dl class="relative grid grid-cols-2 gap-6 sm:gap-8 text-center lg:grid-cols-4">
+					<div class="flex flex-col">
+						<dd class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-1 sm:mb-2">2,500+</dd>
+						<dt class="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-1">Active Members</dt>
+					</div>
+					<div class="flex flex-col">
+						<dd class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-1 sm:mb-2">15</dd>
+						<dt class="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-1">Expert Teachers</dt>
+					</div>
+					<div class="flex flex-col">
+						<dd class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-1 sm:mb-2">75+</dd>
+						<dt class="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-1">Premium Venues</dt>
+					</div>
+					<div class="flex flex-col">
+						<dd class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-1 sm:mb-2">5</dd>
+						<dt class="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-1">Years Strong</dt>
+					</div>
+				</dl>
+			</div>
+
 			<div class="mx-auto max-w-2xl text-center mb-12">
 				<h2 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
 					What's Included
@@ -114,22 +148,22 @@
 			<div class="grid gap-8 sm:grid-cols-3">
 				<div class="text-center bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all">
 					<div class="flex justify-center mb-4">
-						<div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center">
+						<div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center">
 							<MessageCircle class="w-6 h-6 text-white" />
 						</div>
 					</div>
 					<h3 class="text-lg font-semibold text-gray-900 mb-2">Daily Chat</h3>
-					<p class="text-gray-600 text-sm">WhatsApp group with 500+ friendly players</p>
+					<p class="text-gray-600 text-sm">WhatsApp group with passionate players</p>
 				</div>
 				
 				<div class="text-center bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all">
 					<div class="flex justify-center mb-4">
-						<div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
+						<div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center">
 							<Calendar class="w-6 h-6 text-white" />
 						</div>
 					</div>
 					<h3 class="text-lg font-semibold text-gray-900 mb-2">Events</h3>
-					<p class="text-gray-600 text-sm">First access to meetups and celebrations</p>
+					<p class="text-gray-600 text-sm">First access to meetups and tournaments</p>
 				</div>
 				
 				<div class="text-center bg-white/80 backdrop-blur-sm border border-white/50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all">
@@ -177,29 +211,18 @@
 										class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
 									/>
 								</div>
-								
-								<div>
-									<label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-									<input
-										id="phone"
-										type="tel"
-										bind:value={formData.phone}
-										placeholder="+91 98765 43210"
-										class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
-									/>
-								</div>
-								
-								<div>
-									<label for="city" class="block text-sm font-medium text-gray-700 mb-2">City *</label>
-									<input
-										id="city"
-										type="text"
-										required
-										bind:value={formData.city}
-										placeholder="Mumbai, Delhi, Bangalore, etc."
-										class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
-									/>
-								</div>
+							</div>
+							
+							<div>
+								<label for="city" class="block text-sm font-medium text-gray-700 mb-2">City *</label>
+								<input
+									id="city"
+									type="text"
+									required
+									bind:value={formData.city}
+									placeholder="Mumbai, Delhi, Bangalore, etc."
+									class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+								/>
 							</div>
 						</div>
 
@@ -239,36 +262,6 @@
 							</div>
 						</div>
 
-						<!-- Interests -->
-						<div>
-							<h3 class="text-lg font-semibold text-gray-900 mb-2">Interests</h3>
-							<p class="text-sm text-gray-600 mb-4">Select all that apply</p>
-							
-							<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-								{#each interestOptions as interest}
-									<label class="flex items-center space-x-2 cursor-pointer">
-										<input
-											type="checkbox"
-											on:change={(e) => handleInterestChange(interest, e.target.checked)}
-											class="w-4 h-4 text-emerald-600 bg-gray-100 border-gray-300 rounded focus:ring-emerald-500 focus:ring-2"
-										/>
-										<span class="text-sm text-gray-700">{interest}</span>
-									</label>
-								{/each}
-							</div>
-						</div>
-
-						<!-- How did you hear -->
-						<div>
-							<label for="hearAbout" class="block text-sm font-medium text-gray-700 mb-2">How did you hear about us?</label>
-							<input
-								id="hearAbout"
-								type="text"
-								bind:value={formData.hearAbout}
-								placeholder="Google, Friend, Social Media, Event, etc."
-								class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
-							/>
-						</div>
 
 						<!-- Submit Button -->
 						<div class="pt-4">
@@ -282,7 +275,7 @@
 									Joining...
 								{:else}
 									<Users class="w-5 h-5 mr-2" />
-									Join Our Family
+									Join Our Community
 								{/if}
 							</button>
 						</div>
@@ -298,7 +291,7 @@
 					<CheckCircle class="w-8 h-8 text-green-600" />
 				</div>
 				
-				<h2 class="text-2xl font-bold text-gray-900 mb-4">Welcome to Our Family!</h2>
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Welcome to Our Community!</h2>
 				
 				<p class="text-gray-600 mb-6">
 					Thank you for joining, <strong>{formData.name}</strong>! We're delighted to have you.

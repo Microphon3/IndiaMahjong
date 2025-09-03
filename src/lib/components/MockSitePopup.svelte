@@ -68,47 +68,21 @@
 			
 			<!-- Content -->
 			<div class="text-center">
-				<h2 id="popup-title" class="text-xl font-bold text-gray-900 mb-3">
-					Welcome to India Mahjong! 🎯
+				<h2 id="popup-title" class="text-xl font-bold text-gray-900 mb-6">
+					This is a Mock Website, like a False Mahjong! 🀄
 				</h2>
 				
-				<div class="text-gray-600 space-y-3 mb-6">
-					<p class="text-sm leading-relaxed">
-						<span class="font-semibold text-emerald-600">This is a mock website</span> created to showcase our vision for India's premier Mahjong community platform.
-					</p>
-					
-					<div class="bg-emerald-50 rounded-lg p-3 text-left">
-						<p class="text-sm font-medium text-gray-800 mb-2">We're seeking:</p>
-						<ul class="text-sm text-gray-600 space-y-1">
-							<li>• <span class="font-medium">Business Partners</span> to own & run this venture</li>
-							<li>• <span class="font-medium">Co-founders</span> passionate about Mahjong</li>
-							<li>• <span class="font-medium">Investors</span> who see the vision</li>
-							<li>• <span class="font-medium">Feedback</span> on the concept & execution</li>
-						</ul>
-					</div>
-					
-					<p class="text-sm text-gray-500">
-						Want to own and build India's Mahjong community platform?
-					</p>
-				</div>
+				<p class="text-gray-600 mb-6">
+					Feedback welcome!
+				</p>
 				
-				<!-- Action buttons -->
-				<div class="flex flex-col sm:flex-row gap-3">
-					<a 
-						href="mailto:hello@indiamahjong.com?subject=Business Partnership Interest&body=Hi! I'm interested in owning and running the India Mahjong platform. I'd like to discuss business partnership opportunities."
-						class="flex-1 bg-emerald-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-emerald-700 transition-colors text-center text-sm"
-						onclick={closePopup}
-					>
-						Partner With Us 🤝
-					</a>
-					
-					<button 
-						onclick={closePopup}
-						class="flex-1 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors text-sm"
-					>
-						Continue Exploring
-					</button>
-				</div>
+				<!-- Action button -->
+				<button 
+					onclick={closePopup}
+					class="bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-700 transition-colors"
+				>
+					Continue Exploring
+				</button>
 				
 				<p class="text-xs text-gray-400 mt-4">
 					This popup will only show once per visit
