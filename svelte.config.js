@@ -6,6 +6,8 @@ export default {
 	preprocess: vitePreprocess(),
 	kit: {
 		// SPA configuration for Cloudflare Pages
-		adapter: adapter({})
+		adapter: adapter({
+			strict: false
+		})
 	}
 };
