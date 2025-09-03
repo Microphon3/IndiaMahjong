@@ -37,6 +37,7 @@
 		"@auth/sveltekit": "^1.10.0",
 		"@supabase/ssr": "^0.7.0",
 		"@supabase/supabase-js": "^2.56.0",
+		"@sveltejs/adapter-auto": "^6.1.0",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"lucide-svelte": "^0.542.0",
