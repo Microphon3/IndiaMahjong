@@ -6,14 +6,5 @@ export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
 	server: {
 		host: true,
-		allowedHosts: [
-			'localhost',
-			'127.0.0.1',
-			'::1',
-			'*.ngrok-free.app',
-			'*.ngrok.io',
-			'*.ngrok.app',
-			'ed2a5e18ec98.ngrok-free.app'
-		]
 	}
 });
