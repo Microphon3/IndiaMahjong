@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Clock, Users, Star, ChevronRight, BookOpen, Award, Target } from 'lucide-svelte';
 
-	let showAllClasses = $state(false);
+	// Remove toggle - show all classes by default
 	
 	const skillLevels = ['All Levels', 'Beginner', 'Intermediate', 'Advanced'];
 	const classes = [
@@ -217,15 +217,21 @@
 	<div class="bg-white py-16 sm:py-24">
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			
-			{#if !showAllClasses}
+			<!-- Always show header and intro -->
 				<!-- Newcomer Path -->
 				<div class="mx-auto max-w-4xl text-center mb-16">
 					<h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 mb-6">
-						New to Mahjong? Start Here
+						Choose Your Mahjong Style
 					</h2>
-					<p class="text-lg text-gray-600 mb-12">
-						We recommend starting with Taiwanese Mahjong - it's the easiest to learn and most beginner-friendly.
+					<p class="text-lg text-gray-600 mb-8">
+						All our classes welcome beginners. We recommend starting with Taiwanese Mahjong if you're completely new to the game.
 					</p>
+					
+					<!-- Beginner Tip -->
+					<div class="inline-flex items-center bg-emerald-50 text-emerald-800 px-4 py-2 rounded-full text-sm font-medium border border-emerald-200 mb-12">
+						<Target class="w-4 h-4 mr-2" />
+						New to Mahjong? Look for the "RECOMMENDED" badge below
+					</div>
 
 					<!-- Recommended Class Card -->
 					<div class="bg-gradient-to-br from-emerald-50 to-green-50 rounded-3xl p-8 mb-8 border-2 border-emerald-200 shadow-xl">
@@ -264,16 +270,7 @@
 						</div>
 					</div>
 
-					<!-- Show More Options -->
-					<div class="text-center">
-						<button
-							onclick={() => showAllClasses = true}
-							class="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
-						>
-							<span>I know Mahjong basics - show me all styles</span>
-							<ChevronRight class="w-5 h-5 ml-1" />
-						</button>
-					</div>
+					<!-- Transition to All Classes -->
 					
 					<!-- What's Next -->
 					<div class="text-center mt-8 p-4 bg-emerald-50 rounded-2xl border border-emerald-200">
@@ -282,44 +279,19 @@
 					</div>
 				</div>
 
-			{:else}
-				<!-- Veterans View - All Classes -->
-				<div class="mx-auto max-w-2xl text-center mb-12">
-					<h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 mb-4">
-						All Mahjong Styles
-					</h2>
-					<p class="text-lg text-gray-600 mb-6">
-						Choose your preferred variant and skill level
-					</p>
-					
-					<!-- Back to Simple View -->
-					<button
-						onclick={() => showAllClasses = false}
-						class="text-sm text-gray-500 hover:text-gray-700"
-					>
-						← Back to beginner recommendation
-					</button>
-				</div>
-
-				<!-- Skill Level Filters -->
-				<div class="text-center mb-12">
-					<div class="flex flex-wrap justify-center gap-3 sm:gap-4">
-						{#each skillLevels as level, index}
-							<button
-								class="{index === 0 ? 'bg-emerald-600 text-white' : 'bg-white text-gray-900 hover:bg-emerald-50'} inline-flex items-center rounded-lg px-4 sm:px-6 py-2.5 sm:py-3 text-sm font-semibold shadow-sm ring-1 ring-inset {index === 0 ? 'ring-emerald-600' : 'ring-gray-300'} transition-all duration-200 hover:shadow-md"
-							>
-								{level}
-							</button>
-						{/each}
-					</div>
-				</div>
-			{/if}
 			
-			{#if showAllClasses}
+			<!-- All Classes Grid (Now Always Visible) -->
 				<!-- All Classes Grid -->
 				<div class="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 sm:px-0">
 				{#each classes as classItem, index}
-					<div class="group relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-emerald-200">
+					<div class="group relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border {index === 0 ? 'border-emerald-300 ring-2 ring-emerald-200' : 'border-gray-100 hover:border-emerald-200'}">
+						
+						<!-- Recommended Badge for First Class -->
+						{#if index === 0}
+							<div class="absolute top-4 right-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+								RECOMMENDED
+							</div>
+						{/if}
 						<!-- Image Container -->
 						<div class="aspect-video bg-gradient-to-br from-emerald-400 via-teal-500 to-green-600 rounded-t-2xl relative overflow-hidden">
 							<!-- Mahjong Tile Pattern Background -->
@@ -420,7 +392,6 @@
 					</div>
 				{/each}
 				</div>
-			{/if}
 		</div>
 	</div>
 

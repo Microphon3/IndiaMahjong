@@ -46,8 +46,8 @@
 	<nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Global">
 		<div class="flex lg:flex-1">
 			<a href="/" class="-m-1.5 p-1.5 flex items-center space-x-3 group transition-all duration-300">
-				<div class="w-11 h-11 bg-gradient-to-br from-emerald-600 to-green-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/25 group-hover:scale-105 transition-all duration-300">
-					<svg width="24" height="24" viewBox="0 0 48 48" class="drop-shadow-sm transition-all duration-300">
+				<div class="w-12 h-12 bg-gradient-to-br from-emerald-600 to-green-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/25 group-hover:scale-105 transition-all duration-300">
+					<svg width="28" height="28" viewBox="0 0 48 48" class="drop-shadow-sm transition-all duration-300">
 						<defs>
 							<linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
 								<stop offset="0%" style="stop-color:#ffffff"/>

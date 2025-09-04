@@ -36,8 +36,8 @@
 	<nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
 		<div class="flex lg:flex-1">
 			<a href="/" class="-m-1.5 p-1.5 flex items-center space-x-2">
-				<div class="w-10 h-10 bg-gradient-to-br from-emerald-600 to-green-700 rounded-lg flex items-center justify-center">
-					<svg width="20" height="20" viewBox="0 0 48 48" class="drop-shadow-sm">
+				<div class="w-12 h-12 bg-gradient-to-br from-emerald-600 to-green-700 rounded-xl flex items-center justify-center">
+					<svg width="28" height="28" viewBox="0 0 48 48" class="drop-shadow-sm">
 						<defs>
 							<linearGradient id="logoGradientSimple" x1="0%" y1="0%" x2="100%" y2="100%">
 								<stop offset="0%" style="stop-color:#ffffff"/>

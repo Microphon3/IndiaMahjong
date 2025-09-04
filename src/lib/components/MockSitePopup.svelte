@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 	
+	let { onClosed } = $props<{ onClosed?: () => void }>();
 	let showPopup = $state(false);
 	
 	onMount(() => {
@@ -22,6 +23,8 @@
 		if (browser) {
 			localStorage.setItem('indiamahjong-mock-popup-seen', 'true');
 		}
+		// Call the callback to show Ms. Flower
+		onClosed?.();
 	}
 	
 	function handleBackdropClick(event: MouseEvent) {

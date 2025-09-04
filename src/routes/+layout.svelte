@@ -6,8 +6,26 @@
 	import MockSitePopup from '$lib/components/MockSitePopup.svelte';
 	import MockSiteBadge from '$lib/components/MockSiteBadge.svelte';
 	import MsFlower from '$lib/components/MsFlower.svelte';
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 
 	let { children } = $props();
+	let showMsFlower = $state(false);
+	
+	onMount(() => {
+		if (browser) {
+			// Check if user has already seen the popup
+			const hasSeenPopup = localStorage.getItem('indiamahjong-mock-popup-seen');
+			if (hasSeenPopup) {
+				showMsFlower = true;
+			}
+		}
+	});
+	
+	// Listen for custom event when popup is closed
+	function handlePopupClosed() {
+		showMsFlower = true;
+	}
 </script>
 
 <svelte:head>
@@ -27,11 +45,13 @@
 	<Footer />
 	
 	<!-- Mock site popup -->
-	<MockSitePopup />
+	<MockSitePopup onClosed={handlePopupClosed} />
 	
 	<!-- Mock site badge -->
 	<MockSiteBadge />
 	
 	<!-- Ms. Flower chatbot -->
-	<MsFlower />
+	{#if showMsFlower}
+		<MsFlower />
+	{/if}
 </div>
